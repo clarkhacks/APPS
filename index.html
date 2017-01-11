@@ -1,0 +1,833 @@
+<!-- MAKE LINKS CLICKABLE http://stackoverflow.com/questions/14333568/find-links-and-make-them-clickable -->
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>ClarkHacks | Chat</title>
+       <link rel="stylesheet" src="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
+       <script src="https://cdnjs.cloudflare.com
+       jax/libs/vue/1.0.21/vue.js"></script>
+       <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+       <script src="https://cdn.jsdelivr.net/vuefire/1.0.0/vuefire.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.11/vue-router.js"></script>
+      <meta name="description" content="The official website of Clark (Hacks) Weckmann. Need a website made? Check me out. ">
+      <meta name="author" content="Clark Weckmann, ClarkHacks">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://cdn.rawgit.com/Nickersoft/push.js/master/push.min.js"></script>
+      <link rel="shortcut icon" href="https://clarkhacks.com/a/images/favicon.png">
+      <meta charset="utf-8" />
+    <style>
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400);
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+}
+.fadeIn {
+  animation: fadeIn 0.25s;
+  animation-fill-mode: backwards;
+  animation-delay: 0.25s;
+}
+
+.fadeOut {
+  animation: fadeOut 0.25s;
+  animation-fill-mode: backwards;
+}
+
+#vue {
+  margin: 0 auto;
+  padding: 1em;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+}
+#vue .hero {
+  margin: 0.5em auto 0.25em;
+  font-size: 3em;
+  color: #0e0e0e;
+  text-shadow: 1px 1px 0px #e5e5ea, 2px 2px 0px #e5e5ea, 3px 3px 0px #e5e5ea;
+}
+#vue .login {
+  margin: 0;
+}
+#vue .notification {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+#vue .notification.bad {
+  color: #ea0000;
+}
+#vue input {
+  display: block;
+  appearance: none;
+  margin: 0.5em auto;
+  padding: 0.5em;
+  vertical-align: middle;
+  border: 1px solid #e5e5ea;
+  border-radius: 2px;
+  font-size: 1em;
+  width: 100%;
+  max-width: 20em;
+}
+#vue input.messageInput {
+  display: inline-block;
+  width: calc(100% - 3.5em);
+}
+#vue button {
+  border-radius: 5px;
+  padding: 0.5em;
+  vertical-align: middle;
+  border: none;
+  background-color: #3db4e7;
+  color: #fff;
+  font-weight: 400;
+  font-size: 1em;
+  cursor: pointer;
+  transition: color 0.25s ease-out;
+}
+
+#vue .messagesWrapper {
+  padding: 0.5em;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+#vue .messagesWrapper .message {
+  margin: 2em auto;
+  padding: 0 1em;
+  padding-right: 2em;
+  background: #e5e5ea;
+  border-radius: 1em;
+  position: relative;
+  text-align: left;
+}
+#vue .messagesWrapper .message span, #vue .messagesWrapper .message p {
+  display: inline-block;
+  vertical-align: middle;
+}
+#vue .messagesWrapper .message span {
+  position: absolute;
+  top: -1.25em;
+  left: 0.75em;
+  right: auto;
+  font-size: 0.85em;
+  color: #82bc23;
+  white-space: nowrap;
+  vertical-align: top;
+}
+#vue .messagesWrapper .message span time {
+  display: none;
+  vertical-align: top;
+}
+#vue .messagesWrapper .message:hover span time {
+  display: inline;
+}
+#vue .messagesWrapper .message p {
+  width: auto;
+}
+#vue .messagesWrapper .message i {
+  display: none;
+  font-size: 1em;
+  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.5em;
+}
+#vue .messagesWrapper .message[data-person="Me"] {
+  background: #3db4e7;
+  color: white;
+}
+#vue .messagesWrapper .message[data-person="Me"]:after {
+  content: "";
+  position: absolute;
+  right: -0.5em;
+  bottom: 0;
+  width: 0.5em;
+  height: 1em;
+  border-left: 0.5em solid #3db4e7;
+  border-bottom-left-radius: 1em 0.5em;
+}
+#vue .messagesWrapper .message[data-person="Me"] span {
+  right: 0.75em;
+  left: auto;
+  color: #3db4e7;
+}
+#vue .messagesWrapper .message[data-person="Me"] i {
+  display: inline-block;
+  cursor: pointer;
+}
+#vue .messagesWrapper .message:not([data-person="Me"]):after {
+  content: "";
+  position: absolute;
+  left: -0.5em;
+  bottom: 0;
+  width: 0.5em;
+  height: 1em;
+  border-right: 0.5em solid #e5e5ea;
+  border-bottom-right-radius: 1em 0.5em;
+}
+#vue .messagesWrapper .message i {
+  padding: 0.25em;
+  cursor: pointer;
+}
+#vue .usersTyping {
+  text-align: left;
+  font-size: 0.85em;
+  margin: 0 auto;
+  color: #bbbbc8;
+}
+#vue .usersOnline {
+  margin-bottom: 0.25em;
+}
+#vue .users {
+  margin: 0 auto;
+}
+#vue .addMessage {
+  margin: 1em auto;
+  text-align: left;
+}
+#vue .chatroomFlexContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 1em auto;
+}
+#vue .chatroomFlexContainer .chatroom {
+  position: relative;
+  flex-grow: 1;
+  margin: 0.5em;
+  padding: 1em;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  transition: all 0.1s;
+  cursor: pointer;
+}
+#vue .chatroomFlexContainer .chatroom i.fa-close {
+  opacity: 0;
+  position: absolute;
+  top: 0.25em;
+  right: 0.25em;
+  padding: 0.5em;
+  cursor: pointer;
+  transition: opacity 0.1s;
+}
+#vue .chatroomFlexContainer .chatroom i.fa-cog {
+  opacity: 0;
+  position: absolute;
+  top: 0.25em;
+  left: 0.25em;
+  padding: 0.5em;
+  cursor: pointer;
+  transition: opacity 0.1s;
+}
+#vue .chatroomFlexContainer .chatroom:hover {
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 15px 30px 0 rgba(0, 0, 0, 0.19);
+}
+#vue .chatroomFlexContainer .chatroom:hover i {
+  opacity: 1;
+}
+#vue .chatroomFlexContainer .chatroom:nth-of-type(1n) {
+  background-color: #1289FE;
+}
+#vue .chatroomFlexContainer .chatroom:nth-of-type(2n) {
+  background-color: #075DB2;
+}
+#vue .chatroomFlexContainer .chatroom:nth-of-type(3n) {
+  background-color: #0B5298;
+}
+#vue .chatroomFlexContainer .chatroom:nth-of-type(4n) {
+  background-color: #0B5298;
+}
+#vue .chatroomFlexContainer .chatroom:nth-of-type(5n) {
+  background-color: #0B5298;
+}
+#vue .chatroomFlexContainer .chatroom:nth-of-type(6n) {
+  background-color: #073765;
+}
+
+.screen-only
+
+{
+
+display: block;
+
+}
+
+.mobile-only
+
+{
+
+display: none;
+
+}
+
+
+
+@media screen and (max-width: 480px)
+
+{
+
+.screen-only
+
+{
+
+display: none;
+
+}
+
+
+
+.mobile-only
+
+{
+
+display: block;
+
+}
+
+}
+
+
+    </style>
+  </head>
+  <body>
+  <div id="vue">
+  <h1 class="hero screen-only">ClarkHacks Chat</h1>
+  <router-view></router-view>
+  </div>
+    <script>
+/*
+
+          ------
+          ~ Permissions
+            ~ Can only edit chatrooms you made
+
+          ~ Image uploads? (base64 encode)
+
+          ~ localStorage to remember youre logged in
+            ~ use LS from Index
+
+    */
+
+
+//---------
+// Global Data
+//---------
+var baseURL             = "https://ch-chat-room.firebaseio.com/",
+
+    chatroomsRef        = new Firebase(baseURL + "/chatrooms"),
+    chatroomRef         = chatroomsRef.push(),
+    chatroomKey         = "",
+
+    messagesRef         = "",
+    messageRef          = "",
+
+    presenceRef         = new Firebase(baseURL + "/.info/connected"),
+
+    usersRef            = new Firebase(baseURL + "/users"),
+    userRef             = usersRef.push(),
+
+    myRef               = "",
+    myKey               = "",
+
+    newMessage          = {},
+    newUser             = {},
+
+    timer               = null,
+    loginAttempts       = 0,
+
+    notifications       = {
+      "landing":        "If your username is taken try adding some numbers :)",
+      "error":          "We have encountered an error, please reload your page and try again.",
+      "invalid":        "Sorry, your password is invalid. Make sure you have everything correct. Caps matter!",
+      "loggedIn":       "This user is already logged in.",
+      "lockedOut":      "You have attempted to login too many times, please come back later and try again.",
+      "duplicateChat":  "Sorry, there is already a chatroom with this name. Try again!"
+    },
+
+    loginButtonText = {
+      "new":            "Create Account",
+      "existing":       "Log In"
+    };
+
+//---------
+// Components
+//---------
+var presence = Vue.extend({
+  template: '<h3 class="usersOnline">{{ users | usersOnline }} are online</h3>' +
+  '<p class="users" v-for="user in users">' +
+  '{{ user | isMyUsernameOrOnline }}' +
+  '</p>'
+  ,
+
+  data: function() {
+    return {
+      newUser: newUser,
+      newMessage: newMessage
+    }
+  },
+
+  firebase: {
+    users: usersRef
+  }
+});
+
+var login = Vue.extend({
+  template: '<div transition="fade">' +
+  '<h2 class="login">Login, or create an account below.</h2>' +
+  '<p class="notification {{ notificationStatus }}">{{ notification }}</p>' +
+  '<input class="nameInput" @keyup="isExistingUser()" @keyup.enter="goToChatrooms()" v-model="newUser.username" placeholder="Username"/>' +
+  '<input class="nameInput" type="password"  @keyup.tab="isExistingUser()" @keyup.enter="goToChatrooms()" v-model="newUser.password" placeholder="Password"/>' +
+  '<button @click="goToChatrooms()">{{ loginButtonText }}</button>' +
+  '<presence></presence>' +
+  '</div>'
+  ,
+
+  data: function() {
+    return {
+      newMessage:         newMessage,
+      newUser:            newUser,
+      loginAttempts:      loginAttempts,
+      notification:       notifications.landing,
+      notificationStatus: "good",
+      loginButtonText:    loginButtonText.new
+    }
+  },
+
+  beforeCompile: function() {
+    if(myRef != "" && typeof(myRef) != "undefined") {
+      myRef.update({typing: false, online: false});
+      myRef = "";
+      myKey = "";
+
+      //is there a better way?
+      newMessage = {
+        text:           "",
+        username:       "",
+        timestamp:      ""
+      };
+      this.newMessage = newMessage;
+
+      newUser = {
+        username:       "",
+        password:       ""
+      };
+      this.newUser =    newUser;
+    }
+  },
+
+  methods: {
+    isExistingUser: function() {
+      for(var i = 0; i < this.users.length; i++) {
+        if(this.newUser.username == this.users[i].username) {
+          this.loginButtonText = loginButtonText.existing;
+          return;
+        }
+      }
+
+      this.loginButtonText = loginButtonText.new;
+    },
+
+    goToChatrooms: function() {
+      if(this.loginAttempts < 5) {
+        for(var i = 0; i < this.users.length; i++) {
+          if(this.newUser.username == this.users[i].username) {
+            if(this.newUser.password != this.users[i].password) {
+              this.loginAttempts++;
+              this.notificationStatus = "bad";
+              this.notification = notifications.invalid;
+              return;
+            }
+
+            if(!!this.users[i].online) {
+              this.loginAttempts++;
+              this.notificationStatus = "bad";
+              this.notification = notifications["loggedIn"];
+              return;
+            }
+
+            myKey = this.users[i][".key"];
+            myRef = new Firebase(baseURL + "/users/" + myKey);
+          }
+        }
+
+        if(this.newUser.username.trim() != "" && this.newUser.password.trim() != "") {
+          this.newMessage.username = this.newUser.username;
+          router.go("/chatrooms");
+        }
+
+      } else {
+        this.notificationStatus = "bad";
+        this.notification = notifications["lockedOut"];
+        return;
+      }
+    }
+  },
+
+  firebase: {
+    users: usersRef
+  }
+});
+
+var chatrooms = Vue.extend({
+  template: '<div transition="fade">' +
+  '<div class="chatroomFlexContainer">' +
+  '<div class="chatroom" v-for="chatroom in chatrooms | filterBy searchString" @click="goToMessages(chatroom)">' +
+  '<i @click.stop="removeChatroom(chatroom[\'.key\'])" class="fa fa-close"></i>' +
+  '<i @click.stop="toggleEditChatroomModal(chatroom)" class="fa fa-cog"></i>' +
+  '<h3>{{ chatroom.name }}</h3>' +
+  '<p>{{ chatroom.messages | messageLength }} messages</p>' +
+  '</div>' +
+  '</div>' +
+  '<presence></presence>' +
+  '</div>'
+  ,
+
+  beforeCompile: function() {
+    if(newUser.username == "" || newUser.password == "") {
+      router.go("/");
+      return;
+    }
+  },
+
+  ready: function() {
+    var self = this;
+
+    presenceRef.on("value", function(snap) {
+      if (snap.val()) {
+        if(myKey == "" && newUser.username != "" && newUser.password != "") {
+          userRef.set({
+            online:   true,
+            username: newUser.username,
+            password: newUser.password,
+            typing:   false
+
+          }, function() {
+            myKey = self.users[self.users.length - 1][".key"];
+            myRef = new Firebase(baseURL + "/users/" + myKey);
+            myRef.onDisconnect().update({typing: false, online: false});
+          });
+
+        } else if(typeof(myKey) != "undefined" && myKey != "") {
+          myRef.update({online: true});
+          myRef.onDisconnect().update({typing: false, online: false});
+        }
+      }
+    });
+  },
+
+
+  methods: {
+    goToMessages: function(chatroom) {
+      chatroomKey = chatroom['.key'];
+      router.go("/messenger");
+    },
+  },
+
+  filters: {
+    messageLength: function(messages) {
+      if(messages) {
+        return Object.keys(messages).length;
+
+      } else {
+        return 0;
+      }
+    }
+  },
+
+  firebase: {
+    chatrooms: chatroomsRef,
+    users: usersRef
+  },
+
+});
+
+var messenger = Vue.extend({
+  template: '<div transition="fade">' +
+  '<div class="messagesWrapper">' +
+  '<div class="message" v-for="message in messages" data-person="{{ message.username | isMyMessage }}">' +
+  '<span>{{ message.username | isMyMessage }} <time class="hidden">@ {{ message.timestamp }}</time></span>' +
+  '<p>{{ message.text }}</p>' +
+  '<i data-person="{{ message.username | isMyMessage }}" @click="removeMessage($key)" class="fa fa-close"></i>' +
+  '</div>' +
+  '<p class="usersTyping" v-for="user in users">' +
+  '{{ user | isTyping }}' +
+  '</p>' +
+  '</div>' +
+  '<input class="messageInput" @keyup.enter="addMessage()" v-model="newMessage.text" @keyup="userTyping($event)"/>' +
+  '<button @click="addMessage()">Send</button>' +
+  '<presence></presence>' +
+  '</div>'
+  ,
+
+  beforeCompile: function() {
+    var self = this;
+
+    if(newUser.username == "" || newUser.password == "") {
+      router.go("/");
+      return;
+    }
+
+    messagesRef = new Firebase(baseURL + "/chatrooms/" + chatroomKey + "/messages");
+    messageRef = messagesRef.push();
+
+    messagesRef.once("value", function(snapshot) {
+      var data = snapshot.val();
+      self.messages = data;
+    });
+  },
+
+  ready: function() {
+    var self = this;
+
+    presenceRef.on("value", function(snap) {
+      if (snap.val()) {
+        myRef.update({online: true});
+        myRef.onDisconnect().update({typing: false, online: false});
+      }
+    });
+
+    messagesRef.on("value", function(snapshot) {
+      var data = snapshot.val();
+      self.messages = data;
+      self.scrollToBottomOfMessages();
+    });
+  },
+
+  data: function() {
+    return {
+      newMessage: newMessage,
+      newUser: newUser,
+      messages: {}
+    }
+  },
+
+  firebase: {
+    users: usersRef
+  },
+
+  methods: {
+    removeMessage: function(key) {
+      messagesRef.child(key).remove();
+    },
+
+    addMessage: function() {
+      if (this.newMessage.text.trim() != "") {
+        usersRef.child(myKey).update({typing: false});
+
+        messagesRef.push().set({
+          text:       this.newMessage.text,
+          username:   this.newMessage.username,
+          timestamp:  this.timestamp()
+        });
+
+        this.newMessage.text      = "";
+        this.newMessage.timestamp = "";
+      }
+    },
+
+    scrollToBottomOfMessages: function() {
+      Vue.nextTick(function() {
+        var messages = document.getElementsByClassName("messagesWrapper")[0];
+
+        if(!!messages) {
+          messages.scrollTop = messages.scrollHeight;
+        }
+      })
+    },
+
+    userTyping: function(e) {
+      //only numbers, letters, spaces, and backspace
+      if (e.keyCode >= 48 && e.keyCode <= 57 || e.keyCode >= 65 && e.keyCode <= 90 || e.keyCode == 33 || e.keyCode == 4) {
+        usersRef.child(myKey).update({typing: true});
+
+        clearTimeout(timer);
+        timer = setTimeout(function() {
+          usersRef.child(myKey).update({typing: false});
+        }, 1000);
+      }
+    },
+
+    timestamp: function() {
+      var date = new Date();
+
+      function formatDate(date) {
+        var monthNames = [
+          "January", "February", "March",
+          "April", "May", "June", "July",
+          "August", "September", "October",
+          "November", "December"
+        ];
+
+        var day         = date.getDate(),
+            monthIndex  = date.getMonth(),
+            year        = date.getFullYear();
+
+        return monthNames[monthIndex] + " " + day + ", " +  year
+      }
+
+      function formatTime(date) {
+        var hour    = date.getHours(),
+            minute  = date.getMinutes(),
+            amPM    = (hour > 11) ? "pm" : "am";
+
+        if(hour > 12) {
+          hour -= 12;
+        } else if(hour == 0) {
+          hour = "12";
+        }
+        if(minute < 10) {
+          minute = "0" + minute;
+        }
+
+        return hour + ":" + minute + amPM;
+      }
+
+
+      return formatTime(date) + " " + formatDate(date)
+    },
+
+    convertImgToBase64: function(url, callback, outputFormat){
+      var img = new Image();
+      img.crossOrigin = 'Anonymous';
+      img.onload = function() {
+        var canvas = document.createElement('CANVAS');
+        var ctx = canvas.getContext('2d');
+        canvas.height = this.height;
+        canvas.width = this.width;
+        ctx.drawImage(this,0,0);
+        var dataURL = canvas.toDataURL(outputFormat || 'image/png');
+        callback(dataURL);
+        canvas = null;
+      };
+      img.src = url;
+    },
+
+
+    encodeLocalImageFileAsURL: function(cb) {
+      return function(){
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          cb(reader.result);
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+  },
+
+  filters: {
+    isMyMessage: function(username) {
+      if(username === this.newMessage.username) {
+        return "Me"
+      } else {
+        return username
+      }
+    },
+
+    isTyping: function(user) {
+      var self = this;
+
+      if(user.typing && user.username != self.newMessage.username) {
+        self.scrollToBottomOfMessages();
+        return user.username + " is typing..."
+      }
+    }
+  }
+});
+
+//---------
+// Global Filters
+//---------
+Vue.filter("isMyUsernameOrOnline", function(user) {
+  if(user.username === this.newMessage.username) {
+    return user.username + " (Me)"
+  } else {
+    if(user.online == true) {
+      return user.username
+    }
+  }
+});
+
+Vue.filter("usersOnline", function(users) {
+  var numberOnline = 0;
+
+  for(var i = 0; i < users.length; i++) {
+    if(users[i].online == true) {
+      numberOnline++;
+    }
+  }
+
+  return numberOnline;
+});
+
+//---------
+// Transitions
+//---------
+Vue.transition('fade', {
+  enterClass: 'fadeIn',
+  leaveClass: 'fadeOut'
+})
+
+//---------
+// Register global components
+//---------
+Vue.component('presence', presence)
+
+//---------
+// Router
+//---------
+var router = new VueRouter();
+router.map({
+  '/': {
+    component: login
+  },
+
+  '/chatrooms': {
+    component: chatrooms
+  },
+
+  '/messenger': {
+    component: messenger
+  }
+})
+router.start(Vue, '#vue');
+
+console.log("Special thanks to Mike Weaver for the base javascript.");
+console.log("Check out his other code here");
+console.log("https://codepen.io/mjweaver01");
+    </script>
+  </body>
+</html>
