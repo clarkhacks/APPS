@@ -54,7 +54,7 @@ function saveTextAsFile() {
   var postSaveContent = document.getElementById("postWriteBody").value;
   var postSaveTags = "tags:\n" + "- " + document.getElementById("postWriteTags").value.replace(/,/g, "\n-") + "\n";
   var postSaveImg = "img: https://clarkhacks.com/a/img/" + document.getElementById("postWriteImg").value + "\n";
-  var textToWrite = "---" + postLayout +  metaTitle + postSaveImg + postSaveDesc + postSaveTags + "\n ---" + postSaveContent;
+  var textToWrite = "---\n" + postLayout +  metaTitle + postSaveImg + postSaveDesc + postSaveTags + "\n ---\n" + postSaveContent;
   //  create a new Blob (html5 magic) that conatins the data from your form feild
   var textFileAsBlob = new Blob([textToWrite], {
     type: 'md/markdown'
