@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Post Writer</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="image/png" href="https://clarkhacks.com/a/img/favicon.png">
+        <link href="https://clarkhacks.com/a/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://clarkhacks.com/a/css/style.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <link rel="stylesheet" href="https://clarkhacks.com/a/font/FA470/css/font-awesome.min.css">
+        <link rel="stylesheet" href="mde.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet' type='text/css'>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+
+
+    <body class="post-page">
+            <div class="article-body-wrapper row">
+                <div class="container article-body">
+
+                    <div class="row">
+
+                        <div class="well blog-main">
+
+                            <div class="blog-post">
+
+<span class="date" id="postWriteDate">Error Loading Date</span>
+                                 <h1 class="post-title"><input type="text" name="post_title" id="postWriteTitle" onkeyup='saveValue(this);' placeholder="Title" style="width: 100%; border: none; text-align: center"></h1>
+
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse1">
+                                             <h4 class="panel-title">Meta Data
+                                       </h4>
+                                        </div>
+                                        <div id="collapse1" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <textarea placeholder="Brief Description" id="postWriteDesc" onkeyup='saveValue(this);' style="width: 100%; height: 100%; margin: 0px; resize: vertical; border: none"></textarea>
+                                            </div>
+                                            <div class="panel-body">
+                                                <textarea placeholder="Cats, Food, Science" id="postWriteTags" onkeyup='saveValue(this);' style="width: 100%; height: 100%; margin: 0px; resize: vertical; border: none"></textarea>
+                                            </div>
+                                            <div class="panel-body">
+                                                <textarea placeholder="https://clarkhacks.com/a/img/" id="postWriteImg" onkeyup='saveValue(this);' style="width: 100%; height: 100%; margin: 0px; resize: vertical; border: none"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <textarea id="postWriteBody" style="width: 100%; height: 100%; margin: 0px; min-height: 500px; y-overflow: expand; border: none; resize: vertical"></textarea>
+                                <hr>
+                                <div class="PageNavigation" style="width: 100%">
+                                     <a class="btn btn-primary" onclick="saveTextAsFile()" style="margin-top: 5px; margin-right: 3px">Download</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- /.row -->
+
+                </div>
+            </div>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                         <span class="copyright">Copyright &copy; Clark Hacks 2017</span>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline social-buttons">
+                            <li><a href="https://pinterest.com/clarkweckmann/"><i class="fa fa-pinterest"></i></a>
+                            </li>
+                            <li><a href="https://www.reddit.com/user/clarkhacks"><i class="fa fa-reddit"></i></a>
+                            </li>
+
+                            <li><a href="http://bitbucket.org/clarkhacks"><i class="fa fa-bitbucket"></i></a>
+                            </li>
+
+                            <li><a href="http://github.com/clarkhacks"><i class="fa fa-github"></i></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline quicklinks">
+                            <li><a href="https://opensource.org/licenses/MIT">License</a>
+                            </li>
+                            <li><a href="mailto:cweckmaniii@gmail.com">Cweckmaniii@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://clarkhacks.com/a/js/bootstrap.min.js"></script>
+        <script src="https://clarkhacks.com/a/js/main.js"></script>
+        <script type="text/javascript" src="mde.js"></script>
+        <script type="text/javascript" src="scripts.js"></script>
+
+    </body>
+
+</html>
