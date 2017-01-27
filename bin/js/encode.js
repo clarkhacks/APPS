@@ -74,4 +74,7 @@ function base64_encode() {
   // Encode the String
   var baseNotes = Base64.encode(rawNoteData);
   console.log(baseNotes);
+  var viewLinkBtn = document.getElementById("viewLink");
+  viewLinkBtn.href = "https://apps.clarkhacks.com/bin/view/" + baseNotes;
+
 };
