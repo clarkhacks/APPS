@@ -1,4 +1,6 @@
-// Create Base64 Object
+
+    
+      // Create Base64 Object
 function base64_encode() {
 
   var Base64 = {
@@ -74,7 +76,8 @@ function base64_encode() {
   // Encode the String
   var baseNotes = Base64.encode(rawNoteData);
   console.log(baseNotes);
-  var viewLinkBtn = document.getElementById("viewLink");
-  viewLinkBtn.href = "https://apps.clarkhacks.com/bin/view/" + baseNotes;
+  document.getElementById("viewLink").href = "https://apps.clarkhacks.com/bin/view/" + baseNotes;
 
 };
+
+      
