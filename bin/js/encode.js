@@ -75,5 +75,65 @@ function base64_encode() {
   var baseNotes = Base64.encode(rawNoteData);
   document.getElementById("viewLink").href = "https://apps.clarkhacks.com/bin/view/" + baseNotes;
   console.log(baseNotes);
+//   SHORT URL
+  
+  function makeShort() 
+{
+   var longUrl= "https://apps.clarkhacks.com/bin/view/" + baseNotes;
+    var request = gapi.client.urlshortener.url.insert({
+    'resource': {
+      'longUrl': longUrl
+	}
+    });
+    request.execute(function(response) 
+	{
+		
+		if(response.id != null)
+		{
+			str ="<b>Long URL:</b>"+longUrl+"<br>";
+			str +="<b>Short URL:</b> <a href='"+response.id+"'>"+response.id+"</a><br>";
+			document.getElementById("output").innerHTML = str;
+		}
+		else
+		{
+			alert("error: creating short url");
+		}
+	
+    });
+ }
+
+function getShortInfo()
+{
+var shortUrl=document.getElementById("shorturl").value;
+
+    var request = gapi.client.urlshortener.url.get({
+      'shortUrl': shortUrl,
+	'projection':'FULL'
+    });
+    request.execute(function(response) 
+	{
+		
+		if(response.longUrl!= null)
+		{
+			str ="<b>Long URL:</b>"+response.longUrl+"<br>";
+			str +="<b>Create On:</b>"+response.created+"<br>";
+			document.getElementById("output").innerHTML = str;
+		}
+		else
+		{
+			alert("error: unable to get URL information");
+		}
+	
+    });
+
+}
+function load()
+{
+	gapi.client.setApiKey('AIzaSyBQ7H6FE9m5UX_EQeW0ezGFtLxUdEKXS4g'); //get your ownn Browser API KEY
+	gapi.client.load('urlshortener', 'v1',function(){});
+
+}
+window.onload = load;
+
 
 };
