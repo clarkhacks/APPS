@@ -6,4 +6,6 @@ var string = window.location.hash.substr(1);
 // Decode the String
 var decodedString = Base64.decode(string);
 var decodedStringPre = decodedString.replace(/\n/g, "<br />");
-document.getElementById("rawNote").innerHTML = "<p>" + decodedStringPre + "</p>"
+var md = window.markdownit();
+var result = md.render(decodedString);
+document.getElementById("rawNote").innerHTML = "<p>" + result + "</p>"
