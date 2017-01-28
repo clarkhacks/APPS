@@ -72,10 +72,45 @@ function base64_encode() {
   var rawNoteData = textNoteData;
 
   // Encode the String
-  var baseNotes = Base64.encode(rawNoteData);
-  document.getElementById("viewLink").href = "view#" + baseNotes;
+  baseNotes = Base64.encode(rawNoteData);
   console.log(baseNotes);
 
+return baseNotes;
 
 
 };
+// BEGIN SHORT
+
+
+function makeShort()
+{
+   var longUrl= "https://apps.clarkhacks.com/bin/" + "view#" + baseNotes;
+    var request = gapi.client.urlshortener.url.insert({
+    'resource': {
+      'longUrl': longUrl
+	}
+    });
+    request.execute(function(response)
+	{
+
+		if(response.id != null)
+		{
+
+			str ="<b>Short URL:</b> <a href='"+response.id+"'>"+response.id+"</a><br>";
+			document.getElementById("output").innerHTML = str;
+		}
+		else
+		{
+			alert("error: creating short url");
+		}
+
+    });
+ }
+
+function load()
+{
+	gapi.client.setApiKey('AIzaSyCj6iJYpEmBlZRRMgr_8Mwa-fKrjvXjSMU'); //get your ownn Browser API KEY
+	gapi.client.load('urlshortener', 'v1',function(){});
+
+}
+window.onload = load;

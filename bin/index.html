@@ -20,11 +20,11 @@
   <body id="bodyBod">
 
     <div class="container">
-      <a href="#" id="viewLink" class="btn btn-danger">View Your Note</a>
       <textarea id="myRawNotes" class="note-inputs" placeholder="Example Text" oninput="base64_encode()"></textarea>
-
+      <button onclick="makeShort();" class="btn btn-danger">Generate URL</button><br/>
+      <div id="output"></div>
     </div>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://apis.google.com/js/client.js"> </script>
     <script src="js/encode.js"></script>
     <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/autogrow.js"></script>
