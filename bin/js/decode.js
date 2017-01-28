@@ -5,4 +5,5 @@ var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456
 var string = window.location.hash.substr(1);
 // Decode the String
 var decodedString = Base64.decode(string);
-document.getElementById("rawNote").innerHTML = "<pre>" + decodedString + "</pre>"
+var decodedStringPre = decodedString.replace(/\n/g, "<br />");
+document.getElementById("rawNote").innerHTML = "<p>" + decodedStringPre + "</p>"
