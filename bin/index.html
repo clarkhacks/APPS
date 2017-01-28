@@ -2,13 +2,25 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <title>Note Bin</title>
-     <link rel="icon" type="image/png" href="https://clarkhacks.com/a/img/favicon.png">
+     <title>C Bin</title>
+     <link rel="icon" type="image/png" href="favicon.png">
      <meta charset="utf-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
      <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
      <link rel="stylesheet" href="css/encode.css" />
+     <!-- Add to homescreen for Chrome on Android -->
+     <meta name="mobile-web-app-capable" content="yes">
+     <meta name="application-name" content="C Bin Notes">
+     <link rel="icon" sizes="245x245" href="favicon.png">
+
+     <!-- Add to homescreen for Safari on iOS -->
+     <meta name="apple-mobile-web-app-capable" content="yes">
+     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+     <meta name="apple-mobile-web-app-title" content="C Bin Notes">
+     <link rel="apple-touch-icon" href="favicon.png">
+     <!-- Color the status bar on mobile devices -->
+     <meta name="theme-color" content="#333333">
 
      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,12 +33,29 @@
 <h2 class="title-heading">C-Bin Note Creator</h2>
     <div class="container">
       <textarea id="myRawNotes" class="note-inputs" placeholder="Example Text" oninput="base64_encode()"></textarea>
-      <button onclick="makeShort();" class="btn btn-danger">Generate URL</button><br/>
-      <div id="output"></div>
+      <button onclick="makeShort();" class="btn btn-danger" style="margin-top: 15px; display: block; width: 100%">Share Note</button>
+
+    </div>
+    <!-- The shareModal -->
+    <div id="myshareModal" class="shareModal">
+
+      <!-- shareModal content -->
+      <div class="shareModal-content">
+        <div class="shareModal-header">
+          <span class="close">&times;</span>
+          <h4>Share</h4>
+        </div>
+        <div class="shareModal-body">
+          <p>Your note is available here! Copy the link below, if you lose this link we cannot retrieve it.</p>
+          <div id="output"></div>
+          <p>More Features Coming Soon.</p>
+        </div>
+      </div>
+
     </div>
 <script src="https://apis.google.com/js/client.js"> </script>
     <script src="js/encode.js"></script>
     <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/autogrow.js"></script>
+
   </body>
 </html>

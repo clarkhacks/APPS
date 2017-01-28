@@ -96,7 +96,7 @@ function makeShort()
 		if(response.id != null)
 		{
 
-			str ="<b>Short URL:</b> <a href='"+response.id+"'>"+response.id+"</a><br>";
+			str ="<input id=\"shareUrlOutput\" type=\"text\" value='" +response.id+ "'>";
 			document.getElementById("output").innerHTML = str;
 		}
 		else
@@ -105,6 +105,25 @@ function makeShort()
 		}
 
     });
+
+    // Get the shareModal
+    var shareModal = document.getElementById('myshareModal');
+    // Get the <span> element that closes the shareModal
+    var span = document.getElementsByClassName("close")[0];
+        shareModal.style.display = "block";
+
+    // When the user clicks on <span> (x), close the shareModal
+    span.onclick = function() {
+        shareModal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the shareModal, close it
+    window.onclick = function(event) {
+        if (event.target == shareModal) {
+            shareModal.style.display = "none";
+        }
+    }
+
  }
 
 function load()
