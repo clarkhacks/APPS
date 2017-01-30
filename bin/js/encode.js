@@ -133,3 +133,13 @@ function load()
 
 }
 window.onload = load;
+
+            function resize()
+            {
+                var heights = window.innerHeight;
+                document.getElementById("myRawNotes").style.height = heights -60 + "px";
+            }
+            resize();
+            window.onresize = function() {
+                resize();
+            };
