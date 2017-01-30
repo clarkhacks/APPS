@@ -137,7 +137,7 @@ window.onload = load;
             function resize()
             {
                 var heights = window.innerHeight;
-                document.getElementById("myRawNotes").style.height = heights -60 + "px";
+                document.getElementById("myRawNotes").style.height = heights -150 + "px";
             }
             resize();
             window.onresize = function() {
