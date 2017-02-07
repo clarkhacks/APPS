@@ -9,3 +9,9 @@ var decodedStringPre = decodedString.replace(/\n/g, "<br />");
 var md = window.markdownit();
 var result = md.render(decodedString);
 document.getElementById("rawNote").innerHTML = "<p>" + result + "</p>"
+function KeyPress(e) {
+      var evtobj = window.event? event : e
+      if (evtobj.keyCode == 72 && evtobj.ctrlKey) alert("Ctrl+h");
+}
+
+document.onkeydown = KeyPress;
