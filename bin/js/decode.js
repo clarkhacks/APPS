@@ -9,12 +9,11 @@ var decodedStringPre = decodedString.replace(/\n/g, "<br />");
 var md = window.markdownit();
 var result = md.render(decodedString);
 document.getElementById("rawNote").innerHTML = "<p>" + result + "</p>"
+document.getElementById("rawContent").style.display= "none";
+document.getElementById("rawContent").innerHTML = "<xmp>" + result + "</xmp>";
 function KeyPress(e) {
       var evtobj = window.event? event : e
-      if (evtobj.keyCode == 72 && evtobj.ctrlKey)
-            alert("Ctrl+h");
-      var elmEdit = document.getElementById("rawNote").innerHTML;
-      document.elmEdit.innerHTML = "<xmp>" + result "</xmp>";
+      if (evtobj.keyCode == 90 && evtobj.ctrlKey) document.getElementById("rawContent").style.display = "block";
 }
 
 document.onkeydown = KeyPress;
