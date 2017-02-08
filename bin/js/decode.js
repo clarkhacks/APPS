@@ -11,7 +11,10 @@ var result = md.render(decodedString);
 document.getElementById("rawNote").innerHTML = "<p>" + result + "</p>"
 function KeyPress(e) {
       var evtobj = window.event? event : e
-      if (evtobj.keyCode == 72 && evtobj.ctrlKey) alert("Ctrl+h");
+      if (evtobj.keyCode == 72 && evtobj.ctrlKey)
+            alert("Ctrl+h");
+      var elmEdit = document.getElementById("rawNote").innerHTML;
+      document.elmEdit.innerHTML = "<xmp>" + result "</xmp>";
 }
 
 document.onkeydown = KeyPress;
