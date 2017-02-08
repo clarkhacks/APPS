@@ -105,6 +105,7 @@ document.getElementById("rawNote").innerHTML = "<p>" + result + "</p>"
 function KeyPress(e) {
   var evtobj = window.event ? event : e
   if (evtobj.keyCode == 72 && evtobj.ctrlKey && docStat === "p") {
+    e.preventDefault();
   docStat = "x";  document.getElementById("rawNote").innerHTML = "<xmp>" + result + "</xmp>";
   }
   
