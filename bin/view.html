@@ -8,6 +8,7 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
      <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
      <link rel="stylesheet" href="css/decode.css" />
+     <link rel="stylesheet" href="https://cdn.clarkhacks.com/emojify/1.1.0/css/basic/emojify.min.css">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,5 +27,22 @@
 <script src="js/markdown-it.min.js"></script>
     <script src="js/decode.js"></script>
     <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.clarkhacks.com/emojify/1.1.0/js/emojify.min.js"></script>
+    <script type="text/javascript">
+    emojify.setConfig({
+
+  emojify_tag_type : 'div',           // Only run emojify.js on this element
+  only_crawl_id    : null,            // Use to restrict where emojify.js applies
+  img_dir          : 'https://cdn.clarkhacks.com/emojify/1.1.0/images/basic',  // Directory for emoji images
+  ignored_tags     : {                // Ignore the following tags
+      'SCRIPT'  : 1,
+      'TEXTAREA': 1,
+      'A'       : 1,
+      'PRE'     : 1,
+      'CODE'    : 1
+  }
+});
+emojify.run();
+    </script>
   </body>
 </html>

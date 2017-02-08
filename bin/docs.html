@@ -8,6 +8,7 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
      <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
      <link rel="stylesheet" href="css/decode.css" />
+<link rel="stylesheet" href="https://cdn.clarkhacks.com/emojify/1.1.0/css/basic/emojify.min.css">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,48 +18,53 @@
      <![endif]-->
   </head>
   <body>
-<div class="container">
-  <p>
-    <h1 id="docs">Docs</h1>
+    <div class="container">
+      <p>
+        </p><h1 id="docs">Docs</h1>
 
-  <p>The C-Bin Web-App is a frontend only based app. This means there is no database! All data from notes is encoded the stored in the URL. The Goo.gl API is responsible for shortening your URL to a short link for easy sharing. </p>
-
-
-
-  <h2 id="how-to">How To</h2>
-
-  <p>Type your note in the text box and click “Share Note”! It can’t get any easier.</p>
-
-
-
-  <h2 id="markdown-support">Markdown Support</h2>
-
-  <p>Yes! C-Bin does support Markdown! Learn all about what Markdown is and how to use it <a href="https://en.wikipedia.org/wiki/Markdown">here</a>!</p>
-
-
-
-  <h2 id="emojis">Emojis?</h2>
-
-  <p>😂✌😄🏰🐋
-</p>
-
-  <p>Yes, they work!</p>
-
-
-
-  <h2 id="conditions">Conditions</h2>
-
-  <ul>
-  <li>I hold no responsibility for what you may store.</li>
-  <li>If you lose your link you cannot retrieve your note.</li>
-  <li>Licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a></li>
-  </ul>
-</p>
-</div>
+      <p>The C-Bin Web-App is a frontend only based app. This means there is no database! All data from notes is encoded the stored in the URL. The Goo.gl API is responsible for shortening your URL to a short link for easy sharing. </p>
+      <h2 id="how-to">How To</h2>
+      <p>Type your note in the text box and click “Share Note”! It can’t get any easier.</p>
+      <h2 id="markdown-support">Markdown Support</h2>
+      <p>Yes! C-Bin does support Markdown! Learn all about what Markdown is and how to use it <a href="https://en.wikipedia.org/wiki/Markdown">here</a>!</p>
+      <h2 id="emojis">Emojis?</h2>
+      <p>😂✌😄🏰🐋
+    </p>
+      <p>Yes, they work!</p>
+    <p>There are two ways to use emojis!</p>
+    <ul>
+      <li>Emoji Keyboard Input</li>
+      <li>Type <code>:smile:</code> to get :smile:</li>
+    </ul>
+      <h2 id="conditions">Conditions</h2>
+      <ul>
+      <li>I hold no responsibility for what you may store.</li>
+      <li>If you lose your link you cannot retrieve your note.</li>
+      <li>Licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a></li>
+      </ul>
+    <p></p>
+    </div>
 <div class="information">
 <a href="/bin/" class="btn btn-sm btn-info createBtn">Create Your Own Note</a>
 </div>
     <script src="js/decode.js"></script>
     <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://cdn.clarkhacks.com/emojify/1.1.0/js/emojify.min.js"></script>
+      <script type="text/javascript">
+      emojify.setConfig({
+
+    emojify_tag_type : 'div',           // Only run emojify.js on this element
+    only_crawl_id    : null,            // Use to restrict where emojify.js applies
+    img_dir          : 'https://cdn.clarkhacks.com/emojify/1.1.0/images/basic',  // Directory for emoji images
+    ignored_tags     : {                // Ignore the following tags
+        'SCRIPT'  : 1,
+        'TEXTAREA': 1,
+        'A'       : 1,
+        'PRE'     : 1,
+        'CODE'    : 1
+    }
+  });
+  emojify.run();
+      </script>
   </body>
 </html>
