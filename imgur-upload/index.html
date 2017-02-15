@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>imgur Upload API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/imgur-upload/build/imgur.min.css" rel="stylesheet" media="screen">
+    <style>
+        .jumbotron h1, .jumbotron p {
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+
+        .col-md {
+            margin: 0 auto;
+            max-width: 500px
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        h1 {
+          text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron">
+        <h1>Imgur Upload</h1>
+    </div>
+
+    <div class="col-md">
+        <div class="dropzone"></div>
+    </div>
+
+    <script type="text/javascript" src="/imgur-upload/build/imgur.min.js"></script>
+    <script type="text/javascript">
+        var feedback = function (res) {
+            if (res.success === true) {
+                document.querySelector('.status').classList.add('bg-success');
+                document.querySelector('.status').innerHTML = 'Image url: ' + "<a href\=\"" + res.data.link + "\" target\=\_blank\">" + res.data.link + "<\/a>" + "<br>" + "<img src\=\"" + res.data.link + "\"\/>" ;
+            }
+        };
+
+        new Imgur({
+            clientid: '8a17495ea46e582',
+            callback: feedback
+        });
+    </script>
+</body>
+</html>
