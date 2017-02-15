@@ -114,7 +114,7 @@ function KeyPress(e) {
   }
     if (evtobj.keyCode == 69 && evtobj.ctrlKey && evtobj.shiftKey) {
     e.preventDefault();
-    window.location = "/bin#" + string;
+    window.location = "https://apps.clarkhacks.com/" + "bin#" + string;
   }
   
  else {
