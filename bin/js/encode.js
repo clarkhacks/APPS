@@ -73,7 +73,7 @@ function base64_encode() {
 	
 // 	Check for hash already
 	if (window.location.inlcudes("#"){
-	    getElementById("rawNoteData").innerHtml = window.location.hash.substr(1);
+	    getElementById("rawNoteData").value = window.location.hash.substr(1);
 	    };
 
   // Encode the String
