@@ -14,7 +14,7 @@ $(function() {
   var $imgurOauth = $('#imgur a:first');
   var $imgurAnon = $('#imgur a:last');
   var $imgurUpload = $('#imgur-upload');
-  var clientId = '6a5400948b3b376';
+  var clientId = '8a17495ea46e582';
   var loader;
 
   $imgurUpload.hide();
@@ -62,7 +62,15 @@ $(function() {
       },
       success: function(result) {
         var id = result.data.id;
-        window.location = 'https://imgur.com/gallery/' + id;
+        window.location = 'http://i.imgur.com/' + id + '.gif';
+        $( "#imgUploadTxt" ).remove();
+//         var img = $('<img />', {
+//   id: 'imgurGif',
+//   src: 'http://i.imgur.com/' + id + '.gif',
+//   alt: id,
+//   class: 'img-rounded'
+// });
+// img.appendTo($('#imgur-upload'));
       }
     });
   }

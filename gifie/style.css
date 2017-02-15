@@ -46,3 +46,7 @@ canvas {
   margin-top: 5px;
   color: #85bf25;
 }
+#imgurGif {
+  height: 100%;
+  width: 100%;
+}

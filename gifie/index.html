@@ -15,13 +15,13 @@
   </head>
 
   <body>
-
     <div class="container">
       <div>
-        <h1>gifie</h1>
-        <p>Make a gif-selfie with your webcam!</p>
-        <p><a href="https://github.com/eirikb/gifie">Source @ GitHub</a></p>
-        <h2 id="imgur-upload">Uploading to imgur...</h2>
+        <h1>Gifie</h1>
+        <p>Video to Gif</p>
+        <div id="imgur-upload">
+        </div>
+        <h2 id="imgUploadTxt">Uploading to imgur...</h2>
         <div class="group">
           <label>Quality</label>
           <div class="btn-group" data-toggle="buttons">
@@ -54,20 +54,15 @@
           </button>
           <input id="countdown" type="text" data-max="200" data-displayInput="false" data-readOnly="true">
           <input id="loader" type="text" data-cursor="true" data-displayInput="false" data-readOnly="true">
-          <div>
+          <div id="imgHolder">
             <a id="gifLink" target="_blank">
               <img id="gif" class="img-rounded">
             </a>
           </div>
           <div id="imgur">
-            <a class="btn btn-default" href="https://api.imgur.com/oauth2/authorize?response_type=token">
-              <span class="glyphicon glyphicon-cloud-upload"></span>
-              <span class="glyphicon glyphicon-user"></span>
-              Post to imgur
-            </a>
             <a class="btn btn-default" href="#">
               <span class="glyphicon glyphicon-cloud-upload"></span>
-              Post anonymously to imgur
+              Upload
             </a>
           </div>
         </div>
