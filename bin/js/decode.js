@@ -108,6 +108,14 @@ function KeyPress(e) {
     e.preventDefault();
   docStat = "x";  document.getElementById("rawNote").innerHTML = "<xmp>" + result + "</xmp>";
   }
+    if (evtobj.keyCode == 72 && evtobj.ctrlKey && evtobj.shiftKey && docStat === "x") {
+    e.preventDefault();
+  docStat = "x";  document.getElementById("rawNote").innerHTML = "<p>" + result + "</p>";
+  }
+    if (evtobj.keyCode == 69 && evtobj.ctrlKey && evtobj.shiftKey) {
+    e.preventDefault();
+    window.location = "/bin#" + string;
+  }
   
  else {
 
