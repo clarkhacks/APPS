@@ -1,7 +1,16 @@
-// Create Base64 Object
+function checkHash() {
+  // Check for hash already
+  if (window.location.hash){
+    var encodedHash = window.location.hash.substr(1);
+    var decodedHash = Base64.decode(encodedHash);
+    document.getElementById("myRawNotes").value = decodedHash;
+    console.log(decodedHash);
+      };
+};
+window.onload = checkHash;
 function base64_encode() {
 
-  var Base64 = {
+  Base64 = {
     _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
     encode: function(e) {
       var t = "";
@@ -23,6 +32,31 @@ function base64_encode() {
         }
         t = t + this._keyStr.charAt(s) + this._keyStr.charAt(o) + this._keyStr.charAt(u) + this._keyStr.charAt(a)
       }
+      return t
+    },
+    decode: function(e) {
+      var t = "";
+      var n, r, i;
+      var s, o, u, a;
+      var f = 0;
+      e = e.replace(/[^A-Za-z0-9+/=]/g, "");
+      while (f < e.length) {
+        s = this._keyStr.indexOf(e.charAt(f++));
+        o = this._keyStr.indexOf(e.charAt(f++));
+        u = this._keyStr.indexOf(e.charAt(f++));
+        a = this._keyStr.indexOf(e.charAt(f++));
+        n = s << 2 | o >> 4;
+        r = (o & 15) << 4 | u >> 2;
+        i = (u & 3) << 6 | a;
+        t = t + String.fromCharCode(n);
+        if (u != 64) {
+          t = t + String.fromCharCode(r)
+        }
+        if (a != 64) {
+          t = t + String.fromCharCode(i)
+        }
+      }
+      t = Base64._utf8_decode(t);
       return t
     },
     _utf8_encode: function(e) {
@@ -67,29 +101,27 @@ function base64_encode() {
     }
   }
 
+getBaseData();
+};
+function getBaseData() {
   var textNoteData = document.getElementById("myRawNotes").value;
   // Define the string
   var rawNoteData = textNoteData;
-
-// 	Check for hash already
-	// if (window.location.hash){
-	//     getElementById("rawNoteData").value = window.location.hash.substr(1);
-	//     };
+  var rawNoteTitle = document.getElementById("rawNoteTitle").value;
 
   // Encode the String
   baseNotes = Base64.encode(rawNoteData);
+  titleHash = encodeURI(rawNoteTitle);
   console.log(baseNotes);
 
 return baseNotes;
-
-
-};
+}
 // BEGIN SHORT
 
 
 function makeShort()
 {
-   var longUrl= "https://apps.clarkhacks.com/bin/" + "view#" + baseNotes;
+   var longUrl= "https://apps.clarkhacks.com/bin/" + "view#" + baseNotes + "?" + titleHash;
     var request = gapi.client.urlshortener.url.insert({
     'resource': {
       'longUrl': longUrl
@@ -142,7 +174,7 @@ window.onload = load;
             function resize()
             {
                 var heights = window.innerHeight;
-                document.getElementById("myRawNotes").style.height = heights -160 + "px";
+                document.getElementById("myRawNotes").style.height = heights -220 + "px";
             }
             resize();
             window.onresize = function() {
