@@ -70,11 +70,11 @@ function base64_encode() {
   var textNoteData = document.getElementById("myRawNotes").value;
   // Define the string
   var rawNoteData = textNoteData;
-	
+
 // 	Check for hash already
-// 	if (window.location.hash){
-// 	    getElementById("rawNoteData").value = window.location.hash.substr(1);
-// 	    };
+	// if (window.location.hash){
+	//     getElementById("rawNoteData").value = window.location.hash.substr(1);
+	//     };
 
   // Encode the String
   baseNotes = Base64.encode(rawNoteData);
