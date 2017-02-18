@@ -1,13 +1,5 @@
-function checkHash() {
-  // Check for hash already
-  if (window.location.hash){
-    var encodedHash = window.location.hash.substr(1);
-    var decodedHash = Base64.decode(encodedHash);
-    document.getElementById("myRawNotes").value = decodedHash;
-    console.log(decodedHash);
-      };
-};
-window.onload = checkHash;
+
+
 function base64_encode() {
 
   Base64 = {
@@ -100,7 +92,13 @@ function base64_encode() {
       return t
     }
   }
-
+  // Check for hash already
+  if (window.location.hash){
+    var encodedHash = window.location.hash.substr(1);
+    var decodedHash = Base64.decode(encodedHash);
+    document.getElementById("myRawNotes").value = decodedHash;
+    console.log(decodedHash);
+      };
 getBaseData();
 };
 function getBaseData() {
@@ -112,7 +110,7 @@ function getBaseData() {
   // Encode the String
   baseNotes = Base64.encode(rawNoteData);
   titleHash = encodeURI(rawNoteTitle);
-  console.log(baseNotes);
+  console.log(baseNotes + "?" + titleHash);
 
 return baseNotes;
 }
