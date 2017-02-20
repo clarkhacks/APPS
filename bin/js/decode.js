@@ -89,37 +89,12 @@ var Base64 = {
     return t
   }
 }
-
-// Define the string
-var string = window.location.hash.substr(1);
-// Decode the String
-var decodedString = Base64.decode(string);
-var decodedStringPre = decodedString.replace(/\n/g, "<br />");
-var md = window.markdownit();
-var result = md.render(decodedString);
-var docStat = "p";
-document.getElementById("rawNote").innerHTML = "<p>" + result + "</p>"
-// document.getElementById("rawContent").style.display = "none";
-// document.getElementById("rawContent").innerHTML = "<xmp>" + result + "</xmp>";
-
-function KeyPress(e) {
-  var evtobj = window.event ? event : e
-  if (evtobj.keyCode == 72 && evtobj.ctrlKey && evtobj.shiftKey && docStat === "p") {
-    e.preventDefault();
-  docStat = "x";  document.getElementById("rawNote").innerHTML = "<xmp>" + result + "</xmp>";
-  }
-    if (evtobj.keyCode == 72 && evtobj.ctrlKey && evtobj.shiftKey && docStat === "x") {
-    e.preventDefault();
-  docStat = "x";  document.getElementById("rawNote").innerHTML = "<p>" + result + "</p>";
-  }
-    if (evtobj.keyCode == 69 && evtobj.ctrlKey && evtobj.shiftKey) {
-    e.preventDefault();
-    window.location = "https://apps.clarkhacks.com/" + "bin#" + string;
-  }
-  
- else {
-
-   document.getElementById("rawNote").innerHTML = "<p>" + result + "</p>"
-  }
-};
-  document.onkeydown = KeyPress;
+var rawString = window.location.hash; // Get hash containting Base64 String
+var string = rawString.split('#').pop().split('?Title=').shift(); // Pull out Base64 String
+var viewTitle = rawString.substr(rawString.indexOf('?Title=') + 7); // Pull out document title
+var decodedString = Base64.decode(string); // Decode the Base64 String
+var decodedStringPre = decodedString.replace(/\n/g, "<br />"); // Replace returns with breaks
+var md = window.markdownit(); // Set markdownit
+var result = md.render(decodedString); // Apply markdown styles
+document.title = viewTitle; // Set document title
+document.getElementById("rawNote").innerHTML = "<p>" + result + "</p>" // Drop data into document

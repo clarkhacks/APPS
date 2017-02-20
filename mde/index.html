@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Markdown Editor</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/png" href="/a/img/favicon.png">
+    <link href="/a/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/a/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="/a/font/FA470/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/a/css/mde.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet' type='text/css'>
+    <style media="screen">
+    body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+.CodeMirror-scroll {
+  height: 100%;
+}
+
+
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<textarea id="editorBody"># Markdown Editor
+
+Basic useful feature list:
+
+* Ctrl+S / ⌘+S to save the file
+* Ctrl+Shift+S / Cmd+Shift+S to choose to save as Markdown or HTML
+* Drag and drop a file into here to load it
+* File contents are saved in the URL so you can share files
+
+`:smile:` will become :smile:
+
+:bowtie::kissing_closed_eyes:
+
+Check out [Emoji Cheat Sheet](http://www.webpagefx.com/tools/emoji-cheat-sheet/) for more!
+
+![Test-Image](https://clarkhacks.github.io/a/img/favicon.png)</textarea>
+    <script type="text/javascript" src="/a/js/mde.js"></script>
+
+    <script type="text/javascript">
+    new SimpleMDE({
+      element: document.getElementById("editorBody"),
+      autosave: {
+    enabled: true,
+    uniqueId: "editorBody",
+    delay: 1000,
+},
+blockStyles: {
+    bold: "__",
+    italic: "_"
+},
+      status: false,
+      hideIcons: ["side-by-side"]
+    });
+    </script>
+  </body>
+</html>

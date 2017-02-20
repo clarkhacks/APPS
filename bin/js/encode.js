@@ -1,5 +1,3 @@
-
-
 function base64_encode() {
 
   Base64 = {
@@ -92,15 +90,21 @@ function base64_encode() {
       return t
     }
   }
-  // Check for hash already
-  if (window.location.hash){
-    var encodedHash = window.location.hash.substr(1);
-    var decodedHash = Base64.decode(encodedHash);
-    document.getElementById("myRawNotes").value = decodedHash;
-    console.log(decodedHash);
-      };
 getBaseData();
 };
+// function hashCheck() {
+//   // Check for hash already
+//   if (window.location.hash){
+//     var rawString = window.location.hash; // Get hash containting Base64 String
+//     var string = rawString.split('#').pop().split('?Title=').shift(); // Pull out Base64 String
+//     var viewTitle = rawString.substr(rawString.indexOf('?Title=') + 7); // Pull out document title
+//     var decodedString = Base64.decode(string); // Decode the Base64 String
+//     document.getElementById("myRawNotes").value = decodedHash;
+//     document.getElementById("rawNoteTitle").value = viewTitle;
+//     console.log(decodedHash);
+//       };
+// };
+// document.onload = hashCheck();
 function getBaseData() {
   var textNoteData = document.getElementById("myRawNotes").value;
   // Define the string
@@ -119,7 +123,7 @@ return baseNotes;
 
 function makeShort()
 {
-   var longUrl= "https://apps.clarkhacks.com/bin/" + "view#" + baseNotes + "?" + titleHash;
+   var longUrl= "https://apps.clarkhacks.com/bin/" + "view#" + baseNotes + "?Title=" + titleHash;
     var request = gapi.client.urlshortener.url.insert({
     'resource': {
       'longUrl': longUrl

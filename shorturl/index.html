@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Clark Hacks | Shortener</title>
+</head>
+<script type="text/javascript">
+function makeShort() 
+{
+   var longUrl=document.getElementById("longurl").value;
+    var request = gapi.client.urlshortener.url.insert({
+    'resource': {
+      'longUrl': longUrl
+ }
+    });
+    request.execute(function(response) 
+ {
+  
+  if(response.id != null)
+  {
+   str ="<b>Long URL:</b>"+longUrl+"<br>";
+   str +="<b>Short URL:</b> <a href='"+response.id+"'>"+response.id+"</a><br>";
+   document.getElementById("output").innerHTML = str;
+  }
+  else
+  {
+   alert("error: creating short url");
+  }
+ 
+    });
+ }
+
+function getShortInfo()
+{
+var shortUrl=document.getElementById("shorturl").value;
+
+    var request = gapi.client.urlshortener.url.get({
+      'shortUrl': shortUrl,
+ 'projection':'FULL'
+    });
+    request.execute(function(response) 
+ {
+  
+  if(response.longUrl!= null)
+  {
+   str ="<b>Long URL:</b>"+response.longUrl+"<br>";
+   str +="<b>Create On:</b>"+response.created+"<br>";
+   document.getElementById("output").innerHTML = str;
+  }
+  else
+  {
+   alert("error: unable to get URL information");
+  }
+ 
+    });
+
+}
+function load()
+{
+ gapi.client.setApiKey('AIzaSyBQ7H6FE9m5UX_EQeW0ezGFtLxUdEKXS4g'); //get your own Browser API KEY
+ gapi.client.load('urlshortener', 'v1',function(){});
+
+}
+window.onload = load;
+
+</script>
+<script src="https://apis.google.com/js/client.js"> </script>
+
+<body>
+
+URL: <input type="text" id="longurl" name="url" placeholder="LONG URL" /> <br/>
+<input type="button" value="Create Short" onclick="makeShort();" /> <br/> <br/>
+
+<div id="output"></div>
+
+
+</body>
+</html>
