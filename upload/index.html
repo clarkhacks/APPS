@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Custom Image Boxes</title>
+  <title>Any Image</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
@@ -17,27 +17,7 @@
 </head>
 
 <body>
-  <!--
-Database Rules
 
-{
-  "rules": {
-    ".read": true,
-    ".write": true
-  }
-}
-
-Storage Rules
-
-service firebase.storage {
-  match /b/firepicture2.appspot.com/o {
-    match /{allPaths=**} {
-      allow read, write;
-    }
-  }
-}
-
--->
 <div ng-app="myApp" class="container">
   <div ng-controller="imagesController as vm">
     <h1 align="center">Any Image</h1>
@@ -72,6 +52,10 @@ service firebase.storage {
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js'></script>
 
     <script src="js/index.js"></script>
-
+  <script>
+      $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+  </script>
 </body>
 </html>
