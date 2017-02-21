@@ -1,6 +1,4 @@
-  $(document).ready(function(){
-    $('.materialboxed').materialbox();
-  });
+
 (function() {
   'use strict';
 
