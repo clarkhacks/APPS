@@ -53,7 +53,7 @@ service firebase.storage {
     <br>
     <div class="img-sec" ng-repeat="image in vm.images | orderBy: '-date'" class="col-lg-12 col-md-12 col-sm-12">
       <div class="">
-        <img ng-src="{{image.url}}">
+        <img class="materialboxed" ng-src="{{image.url}}">
       </div>
       <div class="option-btns" id="option-btns">
             <a href="{{image.url}}" class="btn blue col s6" download><i class="fa fa-download"></i></a>
