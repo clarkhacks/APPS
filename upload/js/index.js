@@ -18,7 +18,6 @@
     .directive('customOnChange', customOnChange)
 
   function imagesController ($firebaseArray) {
-
     var vm = this;
     var storageService = firebase.storage();
     var ref = firebase.database().ref();
@@ -87,7 +86,6 @@ Materialize.toast('Image Deleted!', 3000);
 
     }
   }
-
   function customOnChange() {
     return {
       restrict: 'A',
@@ -97,7 +95,7 @@ Materialize.toast('Image Deleted!', 3000);
       }
     };
   }
-  
+
 })();
 var fullUrl = window.location.href;
 var qUrl = fullUrl.substr(fullUrl.indexOf("?=") + 2);
