@@ -569,7 +569,7 @@ var chatrooms = Vue.extend({
   methods: {
     goToMessages: function(chatroom) {
       chatroomKey = chatroom['.key'];
-      router.go("/messenger" + "#" + chatroom);
+      router.go("/messenger");
     },
   },
 
