@@ -339,29 +339,9 @@ display: block;
       font-size: 120%;
       color: #fff;
       }
-
-/* Custom styles */
-
-.corner-ribbon.sticky{
-  position: fixed;
-}
-
-.corner-ribbon.shadow{
-  box-shadow: 0 0 3px rgba(0,0,0,.3);
-}
-.corner-ribbon.top-right{
-  top: 25px;
-  right: -50px;
-  left: auto;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
-
-.corner-ribbon.blue{background: #39d;}
     </style>
   </head>
   <body>
-    <div class="corner-ribbon top-right sticky blue"><a href="https://clarkhacks.com/">Home</a></div>
   <div id="vue">
   <h1 class="hero screen-only">ClarkHacks Chat</h1>
   <router-view></router-view>
@@ -372,9 +352,7 @@ display: block;
           ------
           ~ Permissions
             ~ Can only edit chatrooms you made
-
           ~ Image uploads? (base64 encode)
-
           ~ localStorage to remember youre logged in
             ~ use LS from Index
 
@@ -416,10 +394,10 @@ var baseURL             = "https://ch-chat-room.firebaseio.com/",
       "duplicateChat":  "Sorry, there is already a chatroom with this name. Try again!"
     },
 
-    loginButtonText = {
-      "new":            "Create Account",
-      "existing":       "Log In"
-    };
+//     loginButtonText = {
+//       "new":            "Create Account",
+//       "existing":       "Log In"
+//     };
 
 //---------
 // Components
@@ -449,7 +427,7 @@ var login = Vue.extend({
   '<p class="notification {{ notificationStatus }}">{{ notification }}</p>' +
   '<input class="nameInput" @keyup="isExistingUser()" @keyup.enter="goToChatrooms()" v-model="newUser.username" placeholder="Username"/>' +
   '<input class="nameInput" type="password"  @keyup.tab="isExistingUser()" @keyup.enter="goToChatrooms()" v-model="newUser.password" placeholder="Password"/>' +
-  '<button @click="goToChatrooms()">{{ loginButtonText }}</button>' +
+  '<button @click="goToChatrooms()">Sign Up / Login</button>' +
   '<presence></presence>' +
   '</div>'
   ,
@@ -591,7 +569,7 @@ var chatrooms = Vue.extend({
   methods: {
     goToMessages: function(chatroom) {
       chatroomKey = chatroom['.key'];
-      router.go("/messenger");
+      router.go("/messenger" + "#" + chatroom);
     },
   },
 
