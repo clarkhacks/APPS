@@ -394,10 +394,10 @@ var baseURL             = "https://ch-chat-room.firebaseio.com/",
       "duplicateChat":  "Sorry, there is already a chatroom with this name. Try again!"
     },
 
-//     loginButtonText = {
-//       "new":            "Create Account",
-//       "existing":       "Log In"
-//     };
+    loginButtonText = {
+      "new":            "Create Account",
+      "existing":       "Log In"
+    };
 
 //---------
 // Components
@@ -427,7 +427,7 @@ var login = Vue.extend({
   '<p class="notification {{ notificationStatus }}">{{ notification }}</p>' +
   '<input class="nameInput" @keyup="isExistingUser()" @keyup.enter="goToChatrooms()" v-model="newUser.username" placeholder="Username"/>' +
   '<input class="nameInput" type="password"  @keyup.tab="isExistingUser()" @keyup.enter="goToChatrooms()" v-model="newUser.password" placeholder="Password"/>' +
-  '<button @click="goToChatrooms()">Sign Up / Login</button>' +
+  '<button @click="goToChatrooms()">Sign Up \/ Login</button>' +
   '<presence></presence>' +
   '</div>'
   ,
