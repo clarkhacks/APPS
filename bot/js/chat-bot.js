@@ -40,8 +40,9 @@ function chatBot() {
 		if(this.input == 'noop'){
 			return;
 };
-				if(this.match('-- clear.')){
+		if(this.match('-- clear.')){
 			$( ".chatlines" ).remove();
+			return "Chat Cleared";	
 };
 		var unknown = ["I don't know what that means..", "Errr... Error? Does not computer.", "Dude. Idk what you're saying..."][Math.floor(Math.random() * 3)];
 		return unknown;
