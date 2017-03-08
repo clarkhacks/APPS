@@ -17,7 +17,7 @@ function chatBot() {
 
 		this.input = input.toLowerCase();
 
-		if(this.match('(hi|hello|hey|hola|howdy)(\\s|!|\\.|$)')){
+		if(this.match('(h(i)+|hello|h(e)+(y)+|hola|howdy)(\\s|!|\\.|$)')){
 		var responseOne = ["Hey dude!", "Howdy", "Hello ;)", "Greetings", "Mah Nigga!"][Math.floor(Math.random() * 5)]
 		return responseOne;
 };
@@ -34,7 +34,7 @@ function chatBot() {
 		if(this.match('(cya|bye|see ya|ttyl|talk to you later)')){
 			return ["alright, see you around", "good teamwork!"];
 };
-		if(this.match('(dumb|stupid|is that all)')){
+		if(this.match('(dumb|stupid|is that all|retarded|retard|you suck)')){
 			return ["hey i'm just a proof of concept", "you can make me smarter if you'd like"];
 };
 		if(this.input == 'noop'){
