@@ -3,7 +3,7 @@
 var fb = new Firebase("https://test-2cb70.firebaseio.com/");
 
 if(window.location.hash) {
-  var messages = fb.child(window.location.hash.substr(1));
+  var messages = fb.child("messages/" + window.location.hash.substr(1));
 } else {
   var messages = fb.child("messages");
 }
