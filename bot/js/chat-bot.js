@@ -21,9 +21,13 @@ function chatBot() {
 		var responseOne = ["Hey dude!", "Howdy", "Hello ;)", "Greetings", "Mah Nigga!"][Math.floor(Math.random() * 5)]
 		return responseOne;
 };
-		if(this.match('what[^ ]* up|how are you|wyd')){
+		if(this.match('what[^ ]* up|how are you|wyd| what * you doing|watcha doing| whatcha doing')){
 			var responseTwo = ["Well, I'm building a robot", "Doing greaattt", "Weed. Weed. Weed. Smokey Smokey", "Smoking", "Weed", "Weeeeed", "Smoking some herrbb", "that herb", "Crystal Meth <3"][Math.floor(Math.random() * 10)]
 			return responseTwo;
+};
+		if(this.match('fuck*|shit|whore|slut|ass*|dick|cock|penis')){
+			var responseThree = ["No need for profanity", "That's a bad fucking word", "Don't use that fucking language!"][Math.floor(Math.random() * 3)]
+			return responseThree;
 };
 		if(this.match('l(ol)+') || this.match('(ha)+(h|$)') || this.match('lmao')){
 			return "what's so funny?";
@@ -40,14 +44,14 @@ function chatBot() {
 		if(this.input == 'noop'){
 			return;
 };
-		if(this.match('$ -clear|$ -c')){
+		if(this.match('--clear|--c')){
 			$( ".chatlines" ).remove();
 			return "Chat Cleared";	
 };
 		if(this.match('$ -help|$ -h')){
-			return ["$ -clear : Clears Chat", "$ -help : Lists helful commands", "$ -reload : Reloads Chat"];	
+			return ["--clear : Clears Chat", "--help : Lists helful commands", "--reload : Reloads Chat"];	
 };
-		if(this.match('$ -reload|$ -r')){
+		if(this.match('--reload|--r')){
 		location.reload();
 };
 		var unknown = ["I don't know what that means..", "Errr... Error? Does not computer.", "Dude. Idk what you're saying..."][Math.floor(Math.random() * 3)];
