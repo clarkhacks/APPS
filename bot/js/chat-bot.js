@@ -48,13 +48,13 @@ function chatBot() {
 			$( ".chatlines" ).remove();
 			return "Chat Cleared";	
 };
-		if(this.match('$ -help|$ -h')){
+		if(this.match('($ -help|$ -h)')){
 			return ["--clear : Clears Chat", "--help : Lists helful commands", "--reload : Reloads Chat"];	
 };
-		if(this.match('--reload|--r')){
+		if(this.match('(--reload|--r)')){
 		location.reload();
 };
-		var unknown = ["I don't know what that means..", "Errr... Error? Does not computer.", "Dude. Idk what you're saying..."][Math.floor(Math.random() * 3)];
+		var unknown = ["I don't know what that means..", "Errr... Error? Does not compute.", "Dude. Idk what you're saying...", "I'm not too smart to understand that yet. Whoops"][Math.floor(Math.random() * 4)];
 		return unknown;
 	}
 
