@@ -21,20 +21,19 @@ function chatBot() {
 		var responseOne = ["Hey dude!", "Howdy", "Hello ;)", "Greetings", "Mah Nigga!"][Math.floor(Math.random() * 5)]
 		return responseOne;
 };
-		if(this.match('(what[^ ]* up|how are you|wyd| what * you doing|watcha doing| whatcha doing)')){
+		if(this.match('what[^ ]* up|how are you|wyd| what * you doing|watcha doing| whatcha doing')){
 			var responseTwo = ["Well, I'm building a robot", "Doing greaattt", "Weed. Weed. Weed. Smokey Smokey", "Smoking", "Weed", "Weeeeed", "Smoking some herrbb", "that herb", "Crystal Meth <3"][Math.floor(Math.random() * 10)]
 			return responseTwo;
 };
-		if(this.match('(fuck*|shit|whore|slut|ass*|dick|cock|penis|(n)+(i)+(g)+*|cunt|bitch*|pussy|twat)')){
-			var responseThree = ["No need for profanity", "That's a bad fucking word", "Don't use that fucking language!", "Swears are bad fucking words", "I love swears ;) take off your clothes"][Math.floor(Math.random() * 5)]
+		if(this.match('fuck*|shit|whore|slut|ass*|dick|cock|penis')){
+			var responseThree = ["No need for profanity", "That's a bad fucking word", "Don't use that fucking language!"][Math.floor(Math.random() * 3)]
 			return responseThree;
 };
-		f(this.match('(l(ol)+|(l)+(m)+(a)+(o)+|(ha)+|f(u)+(n)+(y)+|x(D)+)')){
-			var responseFour = ["Funny Right", "xD yeah pretty funny", "Duuuddee funnnyy sttuufff", "lololol", "lol", "lmaoo"][Math.floor(Math.random() * 6)]
-			return responseFour;
+		if(this.match('l(ol)+') || this.match('(ha)+(h|$)') || this.match('lmao')){
+			return "what's so funny?";
 };
 		if(this.match('^no+(\\s|!|\\.|$)')){
-			return "no?";
+			return "don't be such a negative nancy :(";
 };
 		if(this.match('(cya|bye|see ya|ttyl|talk to you later)')){
 			return ["alright, see you around", "good teamwork!"];
@@ -45,14 +44,14 @@ function chatBot() {
 		if(this.input == 'noop'){
 			return;
 };
-		if(this.match('(--c|--clear)')){
+		if(this.match('--clear|--c')){
 			$( ".chatlines" ).remove();
 			return "Chat Cleared";	
 };
-		if(this.match('(--help|--h)')){{
+		if(this.match('($ -help|$ -h)')){
 			return ["--clear : Clears Chat", "--help : Lists helful commands", "--reload : Reloads Chat"];	
 };
-		if(this.match('(--reload|--r)')){{
+		if(this.match('(--reload|--r)')){
 		location.reload();
 };
 		var unknown = ["I don't know what that means..", "Errr... Error? Does not compute.", "Dude. Idk what you're saying...", "I'm not too smart to understand that yet. Whoops"][Math.floor(Math.random() * 4)];
