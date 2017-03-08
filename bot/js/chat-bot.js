@@ -25,12 +25,12 @@ function chatBot() {
 			var responseTwo = ["Well, I'm building a robot", "Doing greaattt", "Weed. Weed. Weed. Smokey Smokey", "Smoking", "Weed", "Weeeeed", "Smoking some herrbb", "that herb", "Crystal Meth <3"][Math.floor(Math.random() * 10)]
 			return responseTwo;
 };
-		if(this.match('fuck*|shit|whore|slut|ass*|dick|cock|penis|(n)+(i)+(g)+*')){
-			var responseThree = ["No need for profanity", "That's a bad fucking word", "Don't use that fucking language!"][Math.floor(Math.random() * 3)]
+		if(this.match('fuck*|shit|whore|slut|ass*|dick|cock|penis|(n)+(i)+(g)+*|cunt|bitch*|pussy|twat')){
+			var responseThree = ["No need for profanity", "That's a bad fucking word", "Don't use that fucking language!", "Swears are bad fucking words", "I love swears ;) take off your clothes"][Math.floor(Math.random() * 5)]
 			return responseThree;
 };
 		f(this.match('(l(ol)+|(l)+(m)+(a)+(o)+|(ha)+|f(u)+(n)+(y)+|x(D)+)')){
-			var responseFour = ["No need for profanity", "That's a bad fucking word", "Don't use that fucking language!"][Math.floor(Math.random() * 3)]
+			var responseFour = ["Funny Right", "xD yeah pretty funny", "Duuuddee funnnyy sttuufff", "lololol", "lol", "lmaoo"][Math.floor(Math.random() * 6)]
 			return responseFour;
 };
 		if(this.match('^no+(\\s|!|\\.|$)')){
