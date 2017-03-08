@@ -21,17 +21,10 @@ function chatBot() {
 		var responseOne = ["Hey dude!", "Howdy", "Hello ;)", "Greetings", "Mah Nigga!"][Math.floor(Math.random() * 5)]
 		return responseOne;
 };
-		if(this.match('what[^ ]* up|how are you|wyd|what are you doing')){
+		if(this.match('what[^ ]* up|how are you|wyd')){
 			var responseTwo = ["Well, I'm building a robot", "Doing greaattt", "Weed. Weed. Weed. Smokey Smokey", "Smoking", "Weed", "Weeeeed", "Smoking some herrbb", "that herb", "Crystal Meth <3"][Math.floor(Math.random() * 10)]
 			return responseTwo;
 };
-		if(this.match('?|what|wat|wut|waatt|confused')){
-			var responseThree = ["What?", "You're confused?", "?????", "Did I confuse you?"][Math.floor(Math.random() * 4)]
-			return responseThree;
-};
-		if(this.match('yes|yeah|yeh|yep|yup|okay|got it|correct|yea|yeh|si')){
-			var responseFour = ["okay, cool", "kkk buddy", "mkay", "gotcha"][Math.floor(Math.random() * 4)]
-			return responseFour;
 		if(this.match('l(ol)+') || this.match('(ha)+(h|$)') || this.match('lmao')){
 			return "what's so funny?";
 };
