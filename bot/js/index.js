@@ -57,7 +57,7 @@ $(function() {
 			style = 'other';
 		}
 
-		var line = $('<div><span class="party"></span> <span class="text"></span></div>');
+		var line = $('<div class="chatlines"><span class="party"></span> <span class="text"></span></div>');
 		line.find('.party').addClass(style).text(party + ':');
 		line.find('.text').text(text);
 
