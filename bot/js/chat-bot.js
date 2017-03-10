@@ -25,11 +25,11 @@ function chatBot() {
 			var responseTwo = ["Well, I'm building a robot", "Doing greaattt", "Weed. Weed. Weed. Smokey Smokey", "Smoking", "Weed", "Weeeeed", "Smoking some herrbb", "that herb", "Crystal Meth <3"][Math.floor(Math.random() * 10)]
 			return responseTwo;
 };
-		if(this.match('fuck*|shit|whore|slut|ass*|dick|cock|penis')){
+		if(this.match('fuck *|shit|whore|slut|ass *|dick|cock|penis')){
 			var responseThree = ["No need for profanity", "That's a bad fucking word", "Don't use that fucking language!"][Math.floor(Math.random() * 3)]
 			return responseThree;
 };
-		if(this.match('l(ol)+') || this.match('(ha)+(h|$)') || this.match('lmao')){
+		if(this.match('l(ol)+|lmao|(ha)+(h|$)|fu(n)+ *')){
 			return "what's so funny?";
 };
 		if(this.match('^no+(\\s|!|\\.|$)')){
@@ -46,10 +46,10 @@ function chatBot() {
 };
 		if(this.match('--clear|--c')){
 			$( ".chatlines" ).remove();
-			return "Chat Cleared";	
+			return "Chat Cleared";
 };
 		if(this.match('($ -help|$ -h)')){
-			return ["--clear : Clears Chat", "--help : Lists helful commands", "--reload : Reloads Chat"];	
+			return ["--clear : Clears Chat", "--help : Lists helful commands", "--reload : Reloads Chat"];
 };
 		if(this.match('(--reload|--r)')){
 		location.reload();

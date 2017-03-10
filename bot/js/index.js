@@ -1,4 +1,5 @@
-
+$(".overlay").hide();
+$(".container").show();
 $('.overlay').bind('keydown', function(e) {
 	if(e.keyCode == 13) {
 		usersName = $('.name').val;
