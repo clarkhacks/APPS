@@ -19,8 +19,14 @@
 
   function imagesController ($firebaseArray) {
     var vm = this;
+    var hash = window.location.hash.substring(1);
+    if(window.location.hash) {
+      var ref = firebase.database().ref("/filehost/images/any-image/"+hash);
+} else {
+  var ref = firebase.database().ref("/filehost/images/any-image/public");
+};
     var storageService = firebase.storage();
-    var ref = firebase.database().ref();
+
     var list = $firebaseArray(ref);
     vm.images = list;
     vm.deleteImg = deleteImg;
