@@ -10,7 +10,7 @@
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css'>
 <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -19,13 +19,6 @@
   <div ng-controller="imagesController as vm">
     <h1 align="center" id="pageTitle">Any Image</h1>
     <br />
-    <!--     TOOL BAR -->
-
-    <div class="fixed-action-btn horizontal">
-      <a class="btn-floating btn-large waves-effect waves-light red" onclick="document.getElementById('upload').click(); return false"><i class="material-icons">attach_file</i></a>
-      <input id="upload" type="file" accept="image/*" custom-on-change="vm.image"/>
-    </div>
-    <!--     END TOOL BAR -->
 
     <br>
     <div class="img-sec" ng-repeat="image in vm.images | orderBy: '-date'" class="col-lg-12 col-md-12 col-sm-12">
@@ -50,6 +43,6 @@
 <script src='https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js'></script>
 
-    <script src="js/index.js"></script>
+    <script src="../js/index.js"></script>
 </body>
 </html>
