@@ -6,11 +6,11 @@
     .module('myApp', ["firebase"])
     .run(function () {
     var config = {
-    apiKey: "AIzaSyDeM_f0zQ-F6VYuGViCWvO3wcsjDE5Mm3Y",
-    authDomain: "file-host-18299.firebaseapp.com",
-    databaseURL: "https://file-host-18299.firebaseio.com",
-    storageBucket: "file-host-18299.appspot.com",
-    messagingSenderId: "933047699456"
+  apiKey: "AIzaSyC-xd22YcVwTVjDyq95FU9snzxUUl1tA6Y",
+  authDomain: "clarkhacks-db.firebaseapp.com",
+  databaseURL: "https://clarkhacks-db.firebaseio.com",
+  storageBucket: "clarkhacks-db.appspot.com",
+  messagingSenderId: "97763678515"
     };
     firebase.initializeApp(config);
     })
