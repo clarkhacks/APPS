@@ -1,5 +1,5 @@
 Reveal.initialize({
-    controls: true,
+    controls: false,
     progress: true,
     history: true,
     center: true,
@@ -21,12 +21,21 @@ Reveal.initialize({
       }
     ]
   });
-var ref = new Firebase("https://clarkhacks-db.firebaseio.com/slides");
+  var config = {
+    apiKey: "AIzaSyBdf7B8CGVoaos7-Q4W4lPMi0A4N0LRp7E",
+    authDomain: "clarkhacks-db.firebaseapp.com",
+    databaseURL: "https://clarkhacks-db.firebaseio.com",
+  };
+  firebase.initializeApp(config);
+var ref = firebase.database().ref("/slides");
+if(window.location.href.indexOf("remote") > -1) {
+  Reveal.configure({ controls: true, touch: true });
 Reveal.addEventListener( 'slidechanged', function( event ) {  
   ref.set({currentslideX : Reveal.getState().indexh,
          currentslideY : Reveal.getState().indexv
         });
 });
+};
 ref.on("value", function(snapshot) {
   Reveal.slide(snapshot.val().currentslideX,snapshot.val().currentslideY);
 });
