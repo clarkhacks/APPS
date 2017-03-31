@@ -1,11 +1,11 @@
 Reveal.initialize({
-    controls: true, //
+    controls: false,
     progress: true,
     history: true,
     center: true,
     fragments: true,
     transition: 'convex',
-    touch: true,//
+    touch: flase,
     hideAddressBar: true,
     dependencies: [ {
         src: 'https://cdn.clarkhacks.com/reveal/3.4.1/plugin/zoom-js/zoom.js',
@@ -29,14 +29,14 @@ Reveal.initialize({
   };
   firebase.initializeApp(config);
   var ref = firebase.database().ref("/slides");
-//   if(window.location.href.indexOf("remote") > -1) {
-//        Reveal.configure({ controls: true, touch: true });
-//        Reveal.addEventListener( 'slidechanged', function( event ) {
-//          ref.set({currentslideX : Reveal.getState().indexh,
-//                 currentslideY : Reveal.getState().indexv
-//                });
-//        });
-// }
+  if(window.location.href.indexOf("remote") > -1) {
+       Reveal.configure({ controls: true, touch: true });
+       Reveal.addEventListener( 'slidechanged', function( event ) {
+         ref.set({currentslideX : Reveal.getState().indexh,
+                currentslideY : Reveal.getState().indexv
+               });
+       });
+}
 ref.on("value", function(snapshot) {
   Reveal.slide(snapshot.val().currentslideX,snapshot.val().currentslideY);
 });
