@@ -1,20 +1,19 @@
 Reveal.initialize({
-    controls: false,
+    controls: true,
     progress: true,
     history: true,
     center: true,
-    fragments: true,
     transition: 'convex',
-    touch: flase,
+    touch: true,
     hideAddressBar: true,
     dependencies: [ {
-        src: 'https://cdn.clarkhacks.com/reveal/3.4.1/plugin/zoom-js/zoom.js',
+        src: '//cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/zoom-js/zoom.min.js',
         async: true
       }, {
-        src: 'https://cdn.clarkhacks.com/reveal/3.4.1/plugin/notes/notes.js',
+        src: '//cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/notes/notes.min.js',
         async: true
       }, {
-        src: 'https://cdn.clarkhacks.com/reveal/3.4.1/plugin/highlight/highlight.js',
+        src: '//cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/highlight/highlight.min.js',
         async: true,
         callback: function() {
           return hljs.initHighlightingOnLoad();
@@ -22,21 +21,12 @@ Reveal.initialize({
       }
     ]
   });
-
-  var config = {
-    authDomain: "clarkhacks-db.firebaseapp.com",
-    databaseURL: "https://clarkhacks-db.firebaseio.com",
-  };
-  firebase.initializeApp(config);
-  var ref = firebase.database().ref("/slides");
-  if(window.location.href.indexOf("remote") > -1) {
-       Reveal.configure({ controls: true, touch: true });
-       Reveal.addEventListener( 'slidechanged', function( event ) {
-         ref.set({currentslideX : Reveal.getState().indexh,
-                currentslideY : Reveal.getState().indexv
-               });
-       });
-}
+var ref = new Firebase("https://clarkhacks-db.firebaseio.com/slides");
+Reveal.addEventListener( 'slidechanged', function( event ) {  
+  ref.set({currentslideX : Reveal.getState().indexh,
+         currentslideY : Reveal.getState().indexv
+        });
+});
 ref.on("value", function(snapshot) {
   Reveal.slide(snapshot.val().currentslideX,snapshot.val().currentslideY);
 });
