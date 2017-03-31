@@ -1,46 +1,49 @@
 html
-  head
-    link(rel= "stylesheet", href="https://cdn.clarkhacks.com/reveal/3.4.1/css/reveal.css")
-    link(rel= "stylesheet", href="https://cdn.clarkhacks.com/reveal/3.4.1/css/theme/black.css")
-    link(rel= "stylesheet", href="/aunt_jemima/css/style.css")
-  body
-    .reveal
-        .slides
-            section(data-transition="zoom")
-                h1(data-autoslide="500") Aunt Jemima
-                h3.fragment.fade-in By Clark Weckmann
-            section
+    head
+        link(rel= "stylesheet", href="https://cdn.clarkhacks.com/reveal/3.4.1/css/reveal.css")
+        link(rel= "stylesheet", href="https://cdn.clarkhacks.com/reveal/3.4.1/css/theme/black.css")
+        link(rel= "stylesheet", href="/slides/aunt_jemima/css/style.css")
+    body
+        .reveal
+            .slides
+                section(data-transition="zoom")
+                    h1(data-autoslide="1000") Aunt Jemima
+                    h3.fragment.fade-in By Clark Weckmann
                 section
-                    h1 Early Life
+                    section
+                        h1 Early Life
+                        hr
+                        img(src="https://apps.clarkhacks.com/slides/aunt_jemima/img/ajng.jpg", alt="AuntJem").fragment.grow
+                    section
+                        h1 Nancy Green was born on March 4th, 1834
+                    section
+                        h3 She was a slave who doesn't have much documentation. She wouldv'e done simple jobs such as cleaning, cooking, and being a nanny figure.
+                section
+                    section
+                        h1 Family
+                        hr
+                        h3.fragment.fade-up She was the aunt to Nelson Hayes’ and the great-aunt to Luroy, Walter, Maurice, Helen and William Hayes
+                    section
+                        h3 I have no idea who these people are, even google didn't. So yeah.  
+                section
+                    h1 Career
+                    p Nancy green moved to Chicago (around the middle of her life) to work for a judge as a nanny. 
+                section(data-background-image= "https://apps.clarkhacks.com/slides/aunt_jemima/img/cwfw.jpg")
+                    h1(style= "background-color: #000;") Chicago Fair
                     hr
-                    img(src="/aunt_jemima/img/ajng.jpg", alt="AuntJem").fragment.grow
+                    h3(style= "background-color: #000;") This is where she got her start
                 section
-                    h1 Nancy Green was born on March 4th, 1834
+                    h3 Nancy Green served thousands of pancakes to people to show off the pancake mix. It was a hit.
                 section
-                    h3 She was a slave who doesn't have much documentation. She wouldv'e done simple jobs such as cleaning, cooking, and being a nanny figure.
-            section
-                section
-                    h1 Family
-                    h3.fragment.fade-up She was the aunt to Nelson Hayes’ and thecgreat-aunt to Luroy, Walter, Maurice, Helen and William Hayes
-                section
-                    h3 I have no idea who these people are, even google didn't. So yeah.  
-            section
-                h1 Career
-                p Nancy green moved to Chicago (around the middle of her life) to work for a judge as a nanny. 
-            section(data-background-image= "/aunt_jemima/img/cwfw.jpg")
-                h1(style= "background-color: #000;") Chicago Fair
-                hr
-                h3(style= "background-color: #000;") This is where she got her start
-            section
-              h3 Nancy Green served thousands of pancakes to people to show off the pancake mix. It was a hit.
-            section
-              section
-                h3 She was signed a lifetime contract to be "Aunt Jemima" and she fufilled that until her death in 1923.
-              section
-                h3 Nancy was hit by a car while standing under the 46th Street sign.
-                img(src="/aunt_jemima/img/nyc.jpg", alt="")
-        
-    script(src= "https://cdn.clarkhacks.com/reveal/3.4.1/lib/js/head.min.js")
-    script(src= "https://cdn.clarkhacks.com/reveal/3.4.1/js/reveal.js")
-    script(src= "https://www.gstatic.com/firebasejs/3.7.1/firebase.js")
+                    section
+                        h3 She was signed a lifetime contract to be "Aunt Jemima" and she fufilled that until her death in 1923.
+                    section
+                        h3 Nancy was hit by a car while standing under the 46th Street sign.
+                        img(src="https://apps.clarkhacks.com/slides/aunt_jemima/img/nyc.jpg", alt="")
+                    section(dat-background-image= "")
+                      h1 She is burried in Oak Wood Cemetary
+        script(src= "https://cdn.clarkhacks.com/reveal/3.4.1/lib/js/head.min.js")
+        script(src= "https://cdn.clarkhacks.com/reveal/3.4.1/js/reveal.js")
+        script(src= "https://www.gstatic.com/firebasejs/3.7.1/firebase.js")
+
     script(src= "/aunt_jemima/js/index.js")
