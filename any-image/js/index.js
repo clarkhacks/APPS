@@ -2,15 +2,14 @@
 (function() {
   'use strict';
 
-  angular
-    .module('myApp', ["firebase"])
-    .run(function () {
+  angular.module('myApp', ["firebase"]).run(function () {
     var config = {
-  apiKey: "AIzaSyC-xd22YcVwTVjDyq95FU9snzxUUl1tA6Y",
-  authDomain: "clarkhacks-db.firebaseapp.com",
-  databaseURL: "https://clarkhacks-db.firebaseio.com",
-  storageBucket: "clarkhacks-db.appspot.com",
-  messagingSenderId: "97763678515"
+      apiKey: "AIzaSyC-xd22YcVwTVjDyq95FU9snzxUUl1tA6Y",
+          authDomain: "clarkhacks-db.firebaseapp.com",
+          databaseURL: "https://clarkhacks-db.firebaseio.com",
+          projectId: "clarkhacks-db",
+          storageBucket: "clarkhacks-db.appspot.com",
+          messagingSenderId: "97763678515"
     };
     firebase.initializeApp(config);
     })
@@ -21,11 +20,11 @@
     var vm = this;
     var hash = window.location.hash.substring(1);
     if(window.location.hash) {
-      var ref = firebase.database().ref("/filehost/images/any-image/"+hash);
+      var ref = firebase.database().ref("filehost/images/any-image/"+hash);
       $("#pageTitle").html(hash).css('textTransform', 'capitalize');
       document.title = hash;
     }else {
-  var ref = firebase.database().ref("/filehost/images/any-image/public");
+  var ref = firebase.database().ref("filehost/images/any-image/public");
 };
     var storageService = firebase.storage();
 

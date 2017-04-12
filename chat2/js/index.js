@@ -1,6 +1,6 @@
 
 //If you fork this, please change this database link to your own.
-var fb = new Firebase("https://test-2cb70.firebaseio.com/");
+var fb = new Firebase("https://clarkhacks-db.firebaseio.com/chat/v2/");
 
 if(window.location.hash) {
   var messages = fb.child("messages/" + window.location.hash.substr(1));
@@ -36,7 +36,7 @@ usernameInput.on('keyup', function(e) {
 			message: user + " Has Joined"
 		});
 	}
-	
+
 });
 
 
