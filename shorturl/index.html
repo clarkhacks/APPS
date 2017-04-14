@@ -1,77 +1,70 @@
+<!-- This website is the property of Clark Weckmann III. Do not "borrow", steal, or claim this code as your own. You may use this code in open-source projects or for reference with proper citation. Be honest and pass it on. Thank you <3 -->
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Clark Hacks | Shortener</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://clarkhacks.com/a/css/fonts.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="https://clarkhacks.com/a/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="MobileOptimized" content="320">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short Url • Clark Hacks</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
-<script type="text/javascript">
-function makeShort() 
-{
-   var longUrl=document.getElementById("longurl").value;
-    var request = gapi.client.urlshortener.url.insert({
-    'resource': {
-      'longUrl': longUrl
- }
-    });
-    request.execute(function(response) 
- {
-  
-  if(response.id != null)
-  {
-   str ="<b>Long URL:</b>"+longUrl+"<br>";
-   str +="<b>Short URL:</b> <a href='"+response.id+"'>"+response.id+"</a><br>";
-   document.getElementById("output").innerHTML = str;
-  }
-  else
-  {
-   alert("error: creating short url");
-  }
- 
-    });
- }
 
-function getShortInfo()
-{
-var shortUrl=document.getElementById("shorturl").value;
+<body id="page-top" class="ch-homepage">
+    <main id="main" class="panel">
+        <header class="panel-header">
+            <h1 class="title">Url Shortener</h1>
+            <h2 class="subtitle">clkhx.gp</h2>
+        </header>
+        <div class="container">
+            <section class="box no-shadow">
+                <div class="box-content">
+                    <input type="text" id="longUrl" placeholder="Long Url">
+                </div>
+            </section>
+            <section class="box no-shadow">
+                <div class="box-content">
+                    <h2>Your Short Url:</h2><span id="shortUrl"></span>
+                </div>
+            </section>
+        </div>
+        <footer class="panel-footer">
+            <p>&lt;/&gt with <span class="heart">❤</span> by ClarkHacks</p>
+        </footer>
+    </main>
+    <script type="text/javascript">
+    $('#longUrl').keyup(function(e){
+    if(e.keyCode == 13)
+    {
+      destinationVal = $('#longUrl').text();
+      $.ajax({
+        url: "https://api.rebrandly.com/v1/links/",
+        type: "post",
+        data: JSON.stringify({
+              "destination" : destinationVal
+            , "domain": { "fullName": "rebrand.ly" }
+          //, "slashtag": "A_NEW_SLASHTAG"
+          //, "title": "Rebrandly YouTube channel"
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": "faa6113eb476435986faf3870d034241"
+        },
+        dataType: "json",
+        success: function (link) {
+          console.log("Long URL was "+link.destination+", short URL is "+link.shortUrl);
+        }
+      });
+    }
+});
 
-    var request = gapi.client.urlshortener.url.get({
-      'shortUrl': shortUrl,
- 'projection':'FULL'
-    });
-    request.execute(function(response) 
- {
-  
-  if(response.longUrl!= null)
-  {
-   str ="<b>Long URL:</b>"+response.longUrl+"<br>";
-   str +="<b>Create On:</b>"+response.created+"<br>";
-   document.getElementById("output").innerHTML = str;
-  }
-  else
-  {
-   alert("error: unable to get URL information");
-  }
- 
-    });
-
-}
-function load()
-{
- gapi.client.setApiKey('AIzaSyBQ7H6FE9m5UX_EQeW0ezGFtLxUdEKXS4g'); //get your own Browser API KEY
- gapi.client.load('urlshortener', 'v1',function(){});
-
-}
-window.onload = load;
-
-</script>
-<script src="https://apis.google.com/js/client.js"> </script>
-
-<body>
-
-URL: <input type="text" id="longurl" name="url" placeholder="LONG URL" /> <br/>
-<input type="button" value="Create Short" onclick="makeShort();" /> <br/> <br/>
-
-<div id="output"></div>
-
-
+    </script>
 </body>
+
 </html>

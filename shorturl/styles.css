@@ -1,0 +1,138 @@
+
+html, body {
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 1em;
+    line-height: 1.4em;
+    font-family: "Calibre Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0px auto;
+    color: rgb(34, 34, 34);
+    text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+p {
+    font-size: 1.3em;
+}
+
+pre {
+    margin: 0px;
+    font-size: 14px;
+}
+
+body, .panel {
+    background-image: url("https://clarkhacks.com/a/img/wallpaper2.jpg");
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.panel {
+    text-align: center;
+    padding-top: 5px;
+    min-height: 100%;
+}
+
+.portfolio-sort .subtitle {
+    font-size: 1.2em;
+}
+
+.panel-header {
+    margin: 85px auto 55px;
+}
+
+.title {
+    font-size: 3.2em;
+    line-height: 1em;
+    margin: 0px 0px 15px;
+    color: rgb(237, 234, 234);
+    font-weight: 400;
+    padding-top: 30px;
+}
+
+.subtitle {
+    font-weight: 400;
+    font-size: 1.3em;
+    line-height: 1.2em;
+    margin: 0px 0px 45px;
+    color: rgb(178, 178, 178);
+}
+
+.no-shadow {
+    box-shadow: none !important;
+}
+
+.box {
+    box-shadow: rgba(0, 0, 0, 0.298039) 3px 6px 10px 3px, rgba(0, 0, 0, 0.2) 0px 2px 2px 0px;
+    border-radius: 4px;
+    text-align: left;
+    margin: 50px 10px;
+    position: relative;
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+}
+
+.box-content {
+    padding: 20px;
+    background-color: rgb(248, 248, 248);
+}
+@media all and (min-width: 54em) {
+  .box {
+    width: 70%;
+    max-width: 1200px;
+    margin: 50px auto;
+  }
+}
+
+.panel-footer {
+    margin: 10px auto 20px;
+}
+
+.panel-footer p {
+    padding-bottom: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.heart {
+    font-style: normal;
+    font-weight: 500;
+    color: rgb(192, 57, 43);
+    text-decoration: none;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+input {
+  width: 100%;
+  font-size: 1.3em;
+  border: none;
+}
+
+.clearfix, .clearfix::before, .clearfix::after, .container::before, .container::after, .container-fluid::before, .container-fluid::after, .row::before, .row::after {
+    content: " ";
+    display: table;
+}
+
+.clearfix::after, .container::after, .container-fluid::after, .row::after {
+    clear: both;
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+}
