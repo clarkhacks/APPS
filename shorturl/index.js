@@ -1,11 +1,12 @@
 $('#createShortU').click(function(e) {
-    $('.createMsg').fadeIn();
     var input = $('#longUrl');
     var val = input.val();
     if (val && !val.match(/^.+:\/\/.*/)) {
         destValue = "http://" + $('#longUrl').val();
+        $('.createMsg').fadeIn();
     } else {
         destValue = $('#longUrl').val();
+        $('.createMsg').fadeIn();
     }
     var slugValI = $('#slug').val();
     if (slugValI) {
