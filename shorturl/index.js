@@ -1,11 +1,18 @@
-$('#longUrl').keyup(function(e) {
-    if (e.keyCode == 13) {
+$('#createShortU').click(function(e) {
+  $('.createMsg').fadeIn();
         var input = $('#longUrl');
         var val = input.val();
         if (val && !val.match(/^.+:\/\/.*/)) {
             destValue = "http://" + $('#longUrl').val();
         } else {
             destValue = $('#longUrl').val();
+        }
+        var slugValI = $('#slug').val();
+        if (slugValI) {
+            slugValue = slugValI;
+        }
+        else {
+          slugValue = "";
         }
 
         $.ajax({
@@ -15,7 +22,8 @@ $('#longUrl').keyup(function(e) {
                 "destination": destValue,
                 "domain": {
                     "fullName": "clkhx.link"
-                }
+                },
+                "slashtag": slugValue
             }),
             headers: {
                 "Content-Type": "application/json",
@@ -27,8 +35,12 @@ $('#longUrl').keyup(function(e) {
                 var lLong = link.destination;
                 var lIdent = link.id;
                 var lTitle = link.title;
-                $('#shortUrl').attr("href", "http:\/\/www." + lShort).html("www." + lShort).removeClass("subtitle");
-            }
-        });
+                $('#shortUrl').attr("href", "http:\/\/www." + lShort).html("www." + lShort);
+                $('.createMsg').hide();
+                $('.newShortLink').removeClass('hidden');
+            },
+    error: function(){
+       $('.createMsg').html("Error: Name Already Taken");
     }
+        });
 });

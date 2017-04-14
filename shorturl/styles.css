@@ -22,6 +22,10 @@ pre {
     font-size: 14px;
 }
 
+.hidden {
+  display: none;
+}
+
 body, .panel {
     background-image: url("https://clarkhacks.com/a/img/wallpaper2.jpg");
 }
