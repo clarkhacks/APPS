@@ -65,6 +65,34 @@ a {
 .no-shadow {
     box-shadow: none !important;
 }
+.panel-actions {
+  margin: 20px 0;
+}
+
+.btn {
+  box-shadow: 3px 6px 10px 3px rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 14px;
+  line-height: 50px;
+  display: inline-block;
+  border: 1px solid #dbbd57;
+  font-size: 1.2em;
+}
+
+.btn-primary {
+  margin-right: 5px;
+  background-color: #ffda5b;
+  border-color: #dbbd57;
+  color: #000;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: #f2d160;
+  border-color: #dbbd57;
+}
 
 .box {
     box-shadow: rgba(0, 0, 0, 0.298039) 3px 6px 10px 3px, rgba(0, 0, 0, 0.2) 0px 2px 2px 0px;

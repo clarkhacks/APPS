@@ -20,7 +20,9 @@
     <main id="main" class="panel">
         <header class="panel-header">
             <h1 class="title">Url Shortener</h1>
-            <h2 class="subtitle">clkhx.gp</h2>
+            <div class="panel-actions">
+                <a href="https://clarkhacks.com/" class="btn btn-primary">ClarkHacks.com</a>
+            </div>
         </header>
         <div class="container">
             <section class="box no-shadow">
@@ -30,7 +32,7 @@
             </section>
             <section class="box no-shadow">
                 <div class="box-content">
-                    <h2>Your Short Url:</h2><span id="shortUrl"></span>
+                    <h2>Your Short Url:  <a id="shortUrl" class="subtitle">Nothing Yet :-(</a></h2>
                 </div>
             </section>
         </div>
@@ -38,33 +40,7 @@
             <p>&lt;/&gt with <span class="heart">❤</span> by ClarkHacks</p>
         </footer>
     </main>
-    <script type="text/javascript">
-    $('#longUrl').keyup(function(e){
-    if(e.keyCode == 13)
-    {
-      destinationVal = $('#longUrl').text();
-      $.ajax({
-        url: "https://api.rebrandly.com/v1/links/",
-        type: "post",
-        data: JSON.stringify({
-              "destination" : destinationVal
-            , "domain": { "fullName": "rebrand.ly" }
-          //, "slashtag": "A_NEW_SLASHTAG"
-          //, "title": "Rebrandly YouTube channel"
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          "apikey": "faa6113eb476435986faf3870d034241"
-        },
-        dataType: "json",
-        success: function (link) {
-          console.log("Long URL was "+link.destination+", short URL is "+link.shortUrl);
-        }
-      });
-    }
-});
-
-    </script>
+    <script src="index.js"></script>
 </body>
 
 </html>
