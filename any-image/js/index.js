@@ -1,7 +1,9 @@
 
 (function() {
   'use strict';
-
+  window.onhashchange = function() {
+    window.location.reload()
+  }
   angular.module('myApp', ["firebase"]).run(function () {
     var config = {
       apiKey: "AIzaSyC-xd22YcVwTVjDyq95FU9snzxUUl1tA6Y",
@@ -24,7 +26,7 @@
       $("#pageTitle").html(hash).css('textTransform', 'capitalize');
       document.title = hash;
     }else {
-  var ref = firebase.database().ref("filehost/images/any-image/public");
+  var ref = firebase.database().ref("/filehost/images/any-image/public");
 };
     var storageService = firebase.storage();
 
