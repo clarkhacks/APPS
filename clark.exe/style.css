@@ -32,7 +32,9 @@ span {
 .warn {
     color: #FFCC00;
 }
-
+.cmd {
+ color: #00FF00;   
+}
 .l1 {
     color: #9CD9F0;
     -webkit-animation: type .5s 1s steps(20, end) forwards;
