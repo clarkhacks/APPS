@@ -111,3 +111,9 @@ var qUrl = fullUrl.substr(fullUrl.indexOf("?=") + 2);
 if (qUrl === "ref_Admin") {
  document.getElementById("option-btns").innerHTML = "<a href=\"{{image.url}}\" class=\"btn blue col s6\" download><i class=\"fa fa-download\"><\/i><\/a><a class=\"btn red col s6\" ng-click=\"vm.deleteImg(image.$id)\"><i class=\"fa fa-trash-o\"><\/i><\/a>";
 };
+lightbox.option({
+  'alwaysShowNavOnTouchDevices': true,
+  'wrapAround': true,
+  'albumLabel': window.location.hash.substring(1),
+  'disableScrolling': true
+    })
