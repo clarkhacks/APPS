@@ -6,7 +6,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Happy+Monkey" rel="stylesheet" />
     <style>
-      @import url(https://fonts.googleapis.com/css?family=Lato:300,400);
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400);
 body {
   height: 100%;
   color: #FFFFFF;
@@ -23,15 +23,6 @@ body {
   line-height: 50px;
   letter-spacing: -0.25px;
   margin-bottom: 10px;
-}
-
-.container {
-  margin-top: 10px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
 }
 
 img {
@@ -72,13 +63,10 @@ img {
 }
 
 .cta {
-  padding: 13px 24px;
-  color: #ffffff;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
-  border: 0;
-  border-radius: 5px;
+  margin-top: 30px;
   background-color: #7EC954;
   transition-property: all;
   transition-duration: 0.15s;
@@ -90,12 +78,14 @@ img {
 
     </style>
    </head>
-  <body onload="action()">
+<body onload="action()">
   <div class="heading">Bob Ross Memes</div>
 </body>
 <div class="container">
-  <div class="headline"> <img id="meme" src="https://memegen.link/custom/Loading/Meme.jpg?alt=http://thomaspark.co/wp/wp-content/uploads/2015/11/bobross.jpg"/></div>
-  <button class="cta" onclick="action()">Make Meme</button>
+  <div class="headline"> <a id="aMeme" href=""><img id="meme" src="https://memegen.link/custom/Loading/Meme.jpg?alt=http://thomaspark.co/wp/wp-content/uploads/2015/11/bobross.jpg"/></a></div>
+  <center>
+    <button class="cta btn" onclick="action()">Make Meme</button>
+  </center>
 </div>
   <script>
     var quote = [
@@ -356,6 +346,7 @@ for(var i=0;i<quote.length;i++)
   var memeSrc = Math.floor(Math.random() * 6) + 1;
   var memeLink = "https://memegen.link/custom/-/" + quote[q] +  ".jpg?alt=https://apps.clarkhacks.com/bob_ross/meme/m"+memeSrc+".jpg";
   document.getElementById("meme").src = memeLink;
+  document.getElementById("aMeme").href = memeLink;
   // random color
   var colors = ['#2a96ea', '#2482cc', '#4396d8', '#4ba1e5', '#449ee5'];
 var random_color = colors[Math.floor(Math.random() * colors.length)];
