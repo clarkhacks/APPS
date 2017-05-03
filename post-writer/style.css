@@ -44,7 +44,7 @@ header {
     text-align: center;
     color: rgb(255, 255, 255);
     background-attachment: scroll;
-    background-image: url("https://clarkhacks.com/a/img/bg.png");
+    background-image: url("https://clarkhacks.com/img/bg.png");
 }
 
 .btn-lg, .btn-group-lg>.btn {
@@ -164,5 +164,5 @@ body {
 }
 
 .post-page {
-    background-image: url("https://clarkhacks.com/a/img/grid.png");
+    background-image: url("https://clarkhacks.com/img/grid.png");
 }
