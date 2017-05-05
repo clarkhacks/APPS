@@ -11,48 +11,93 @@
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css'>
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-    <link rel="stylesheet" href="css/lb.css">
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body, html, .body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: url("https://cdn.clarkhacks.com/image/hardware.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+.wrapper {
+  vertical-align: middle;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  margin: 0.5em 0;
+  font-size: 1.25em;
+  color: #FFF;
+  text-shadow: 0 0 .5em #000;
+}
+
+input {
+  width: 100%;
+  display: block;
+  margin: 2em auto;
+  padding: 0.5em 0.25em;
+  border: none;
+  border-radius: 0.2em;
+  font-size: 1.5em;
+  text-align: center;
+  box-shadow: 0 0 1em 0.25em rgba(0, 0, 0, 0.2);
+}
+.button {
+  overflow: hidden;
+  margin: 10px;
+  padding: 12px 12px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  border: 0 none;
+  cursor: pointer;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.button:hover {
+  opacity: .85;
+}
+.button:active {
+  transition: all 60ms ease;
+  opacity: .75;
+}
+.button:focus {
+  outline: 1px dotted #959595;
+  outline-offset: -4px;
+}
+.button.-dark {
+  color: #FFFFFF;
+  background: #333030;
+}
+.button.-dark:focus {
+  outline: 1px dotted white;
+  outline-offset: -4px;
+}
+    </style>
 </head>
 
 <body>
-
-    <div ng-app="myApp" class="container">
-        <div ng-controller="imagesController as vm">
-            <h1 align="center" id="pageTitle">Any Image</h1>
-            <br />
-            <!--     TOOL BAR -->
-
-            <div class="fixed-action-btn horizontal">
-                <a class="btn-floating btn-large waves-effect waves-light red" onclick="document.getElementById('upload').click(); return false"><i class="material-icons">attach_file</i></a>
-                <input id="upload" type="file" accept="image/*" custom-on-change="vm.image" />
-            </div>
-            <!--     END TOOL BAR -->
-
-            <br>
-            <div class="img-sec" ng-repeat="image in vm.images | orderBy: '-date'" class="col-lg-12 col-md-12 col-sm-12">
-                <div class="">
-                    <a ng-href="{{image.url}}" data-lightbox="set">
-                        <img class="img" id="{{ 'img-' + $index }}" ng-src="{{image.url}}">
-                    </a>
-                </div>
-                <div class="option-btns" id="option-btns">
-                    <a href="{{image.url}}" class="btn blue col s6" download><i class="fa fa-download"></i></a>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-    <script src='https://www.gstatic.com/firebasejs/3.4.1/firebase.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js'></script>
-    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js'></script>
-    <script src='https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js'></script>
-    <script src="js/lb.js"></script>
-    <script src="js/index.js"></script>
+  <div class="wrapper">
+    <div class="title">Image Bin ID:  </div>
+    <input id="binId" type="text"/><a class="button -dark" onclick="toBin()">View Bin</a>
+  </div>
+    <script>
+    function toBin() {
+  var binId = document.getElementById("binId").value;
+var binUrl = "https://apps.clarkhacks.com/any-image/#";
+window.location = binUrl + binId;
+}
+    </script>
 </body>
-
 </html>
