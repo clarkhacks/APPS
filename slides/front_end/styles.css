@@ -1,0 +1,35 @@
+h2.typer {
+  color: #00FFFF !important;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: none;
+  color: #00FFFF !important;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: none;
+}
+
+pre, code {
+  font-size: 0.8em !important;
+  line-height: 1.3em !important;
+  word-wrap: break-word !important;
+  white-space: pre-wrap !important;
+}
