@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.clarkhacks.com/reveal/3.4.1/css/reveal.css"/>
+    <link rel="stylesheet" href="https://cdn.clarkhacks.com/reveal/3.4.1/css/theme/black.css"/>
+    <style>
+    h2.typer {
+  color: #00FFFF !important;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: none;
+  color: #00FFFF !important;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: none;
+}
+
+pre, code {
+  font-size: 0.8em !important;
+  line-height: 1.3em !important;
+  word-wrap: break-word !important;
+  white-space: pre-wrap !important;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-transition="zoom">
+          <h1>How to Build a Website</h1>
+          <h2>(Front End)</h2>
+          <h3>By Clark Weckmann</h3>
+        </section>
+        <section>
+          <section>
+            <h2>Wiki Definition</h2>
+            <blockquote>Front-end web development, also known as client-side development is the practice of producing HTML, CSS and JavaScript for a website or Web Application so that a user can see and interact with them directly.</blockquote>
+          </section>
+          <section><img src="https://goo.gl/2OAmzC" alt=""/></section>
+        </section>
+        <section>
+          <section>
+            <h1>HTML</h1>
+            <pre> <code class="html">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Example Page&lt;/title&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;
+            Heading 1
+        &lt;/h1&gt;
+        &lt;p&gt;
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        &lt;/p&gt;
+        &lt;img src=&quot;/hardware.png&quot; /&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </section>
+          <section data-background="https://goo.gl/6Rqse3"></section>
+        </section>
+        <section>
+          <section>
+            <h1>Adding Style</h1>
+          </section>
+          <section>
+            <h3 class="top">CSS</h3>
+            <pre><code class="css">body {
+ width: 100%;
+ height: 100%;
+ overflow: hidden;
+}
+ 
+img {
+ width: 50%;
+ height: 50%;
+ box-shadow: rgba(0, 0, 0, 0.298039) 3px 6px 10px 3px, rgba(0, 0, 0, 0.2) 0 2px 2px 0;
+}</code></pre>
+          </section>
+        </section>
+        <section data-background="https://goo.gl/wXjxME"></section>
+        <section>
+          <section>
+            <h3>JavaScript</h3>
+            <pre><code class="javascript"></code>var test = document.getElementById('testElem');
+ 
+var testHHTML = test.innerHTML;
+ 
+testHTML = "Hi";
+...</pre>
+          </section>
+          <section>
+            <h2 class="typer" data-typer-targets="{ &quot;targets&quot; : [&quot;Words&quot;, &quot;SUPER basic example&quot;, &quot;Typing Effect with JavaScript&quot;]}"></h2>
+            <h3 id="minutes"></h3>
+            <h3 id="seconds"></h3>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.clarkhacks.com/reveal/3.4.1/lib/js/head.min.js"></script>
+    <script src="https://cdn.clarkhacks.com/reveal/3.4.1/js/reveal.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
