@@ -1,0 +1,8 @@
+.countainer(ng-app="App" ng-controller="AppCtrl")
+  .title Hours Worked
+  figure(class="{{ appClass }}")
+    .count
+      button(class="fa fa-angle-double-up" ng-click="up()" )
+      p {{ count.counter }}
+      button(class="fa fa-angle-double-down" ng-click="down()")
+  p.profit Profit: {{"$" + count.counter * 10 + ".00"}}

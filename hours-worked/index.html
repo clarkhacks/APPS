@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hours Worked</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+
+  <div class="countainer" ng-app="App" ng-controller="AppCtrl">
+    <div class="title">Hours Worked</div>
+    <figure class="{{ appClass }}">
+      <div class="count">
+        <button class="fa fa-angle-double-up" ng-click="up()"></button>
+        <p>{{ count.counter }}</p>
+        <button class="fa fa-angle-double-down" ng-click="down()"></button>
+      </div>
+    </figure>
+    <p class="profit">Profit: {{"$" + count.counter * 10 + ".00"}}</p>
+  </div>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js'></script>
+  <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
+  <script src='https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js'></script>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>

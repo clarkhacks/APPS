@@ -1,0 +1,76 @@
+body {
+  background: #333;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.title {
+  color: #ebebeb;
+  font-size: 2rem;
+  text-align: center;
+  padding-top: .5rem;
+}
+
+.profit {
+  position: fixed;
+  bottom: 1rem;
+  text-align: center;
+  font-size: 1.3em;
+  width: 100%;
+  color: #ebebeb;
+}
+
+figure {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #ff2247, #1e3f9f);
+  color: white;
+  border: 6px solid white;
+  border-radius: 20px;
+  box-shadow: 0 0 11px 6px rgba(0, 0, 0, 0.6);
+}
+figure .count {
+  font: 100 50px 'Helvetica Neue';
+  text-align: center;
+}
+figure .count .fa {
+  padding: 0 20px;
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  -webkit-user-select: none;
+}
+figure .count .fa:hover {
+  animation: bounce .7s infinite ease-in-out forwards;
+}
+figure .count .fa:nth-child(1):disabled {
+  transform: scale(1.4);
+  color: limegreen;
+}
+figure .count .fa:nth-child(1):disabled:hover {
+  animation: none;
+}
+figure .count .fa:nth-child(3):disabled {
+  transform: scale(1.4);
+  color: crimson;
+}
+figure .count .fa:nth-child(3):disabled:hover {
+  animation: none;
+}
+figure .count p {
+  padding: 5px;
+  -webkit-user-select: none;
+}
+
+@keyframes bounce {
+  70% {
+    transform: scale(1.2);
+  }
+}
