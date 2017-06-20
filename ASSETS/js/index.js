@@ -8,4 +8,4 @@ $("#searchInput").keyup(function() {
     })
     .addClass("hidden");
 });
-$( ".button:odd" ).addClass("button-primary");
+$( ".button:even" ).addClass("button-primary");
