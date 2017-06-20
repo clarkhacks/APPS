@@ -1,0 +1,36 @@
+body {
+  background-color: #f7f7f7;
+}
+.title {
+  text-align: center;
+}
+.name {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+#searchInput {
+  border-radius: 0.2em;
+  font-size: 1.5em;
+  text-align: center;
+  width: 100%;
+}
+#searchable {
+  text-align: center;
+}
+.button {
+  width: 100%;
+  background-color: #fff;
+}
+.hidden {
+  display: none;
+}
+hr{
+  border: 0;
+  border-bottom: 3px dashed;
+  width: 100%;
+}
+
+a:hover, a:active, a {
+  color: purple;
+  text-decoration: none;
+}
