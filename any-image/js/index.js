@@ -23,7 +23,12 @@
     var hash = window.location.hash.substring(1);
     if(window.location.hash) {
       var ref = firebase.database().ref("filehost/images/any-image/"+hash);
-      $("#pageTitle").html(hash).css('textTransform', 'capitalize');
+      if (hash == "Clark-App") {
+       $("#pageTitle").html(" ").css('display', 'hidden'); 
+      }
+      else {
+       $("#pageTitle").html(hash).css('textTransform', 'capitalize'); 
+      }
       document.title = hash;
     }else {
   var ref = firebase.database().ref("/filehost/images/any-image/public");
@@ -106,14 +111,20 @@ Materialize.toast('Image Deleted!', 3000);
   }
 
 })();
-var fullUrl = window.location.href;
-var qUrl = fullUrl.substr(fullUrl.indexOf("?=") + 2);
-if (qUrl === "ref_Admin") {
- document.getElementById("option-btns").innerHTML = "<a href=\"{{image.url}}\" class=\"btn blue col s6\" download><i class=\"fa fa-download\"><\/i><\/a><a class=\"btn red col s6\" ng-click=\"vm.deleteImg(image.$id)\"><i class=\"fa fa-trash-o\"><\/i><\/a>";
-};
 lightbox.option({
   'alwaysShowNavOnTouchDevices': true,
   'wrapAround': true,
   'albumLabel': window.location.hash.substring(1),
   'disableScrolling': true
     })
+var fullUrl = window.location.href;
+var qUrl = fullUrl.substr(fullUrl.indexOf("#") + 1);
+if (qUrl === "Clark-App") {
+ document.getElementById("option-btns").innerHTML = "<a href=\"{{image.url}}\" class=\"btn blue col s6\" download><i class=\"fa fa-download\"><\/i><\/a><a class=\"btn red col s6\" ng-click=\"vm.deleteImg(image.$id)\"><i class=\"fa fa-trash-o\"><\/i><\/a>";
+lightbox.option({
+  'alwaysShowNavOnTouchDevices': false,
+  'wrapAround': false,
+  'albumLabel': window.location.hash.substring(1),
+  'disableScrolling': true
+    })
+};
