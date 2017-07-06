@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>JSON Editor</title>
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <script src="js/jsoneditor.js"></script>
+  <link rel="shortcut icon" href="/img/favicon.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+  <div id="jsoneditor"></div>
+  <p class="button-wrapper">
+    <label for="loadDocument" class="button button-primary">
+      Load
+    </label>
+    <input type="file" id="loadDocument" value="Load" style="display: none" />
+    <input type="button" id="saveDocument" value="Save" class="button" />
+  </p>
+  <script src="https://bgrins.github.io/filereader.js/filereader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+  <script>
+  console.log("JSON EDITOR CREDIT: https:\/\/github.com\/josdejong\/jsoneditor\/");
+    // create the editor
+    var container = document.getElementById('jsoneditor');
+
+    var options = {
+      mode: 'tree',
+      modes: ['code', 'form', 'text', 'tree', 'view'], // allowed modes
+      onError: function(err) {
+        alert(err.toString());
+      },
+      onModeChange: function(newMode, oldMode) {
+        console.log('Mode switched from', oldMode, 'to', newMode);
+      }
+    };
+
+    var json = {
+      "animals": [{
+          "id": 1,
+          "name": "Cat",
+          "price": "$10.00",
+          "tags": "feline, easy, cute"
+        },
+        {
+          "id": 2,
+          "name": "Dog",
+          "price": "$20.00",
+          "tags": "canine, easy, furry"
+        },
+        {
+          "id": 3,
+          "name": "Hamster",
+          "price": "$5.00",
+          "tags": "rodent, smelly"
+        },
+        {
+          "id": 4,
+          "name": "Mouse",
+          "price": "$1.00",
+          "tags": "rodent, cute"
+        }
+      ]
+    };
+
+    var editor = new JSONEditor(container, options, json);
+    // Load a JSON document
+    FileReaderJS.setupInput(document.getElementById('loadDocument'), {
+      readAsDefault: 'Text',
+      on: {
+        load: function(event, file) {
+          editor.setText(event.target.result);
+        }
+      }
+    });
+
+    function resize() {
+      var heights = window.innerHeight - 100;
+      document.getElementById("jsoneditor").style.height = heights + "px";
+    }
+    resize();
+    window.onresize = function() {
+      resize();
+    };
+    // Save a JSON document
+    document.getElementById('saveDocument').onclick = function() {
+      // Save Dialog
+      fname = window.prompt("Save as...");
+
+      // Check json extension in file name
+      if (fname.indexOf(".") == -1) {
+        fname = fname + ".json";
+      } else {
+        if (fname.split('.').pop().toLowerCase() == "json") {
+          // Nothing to do
+        } else {
+          fname = fname.split('.')[0] + ".json";
+        }
+      }
+      var blob = new Blob([editor.getText()], {
+        type: 'application/json;charset=utf-8'
+      });
+      saveAs(blob, fname);
+    };
+  </script>
+</body>
+
+</html>
