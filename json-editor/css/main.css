@@ -216,7 +216,7 @@ div.jsoneditor-tree button {
   margin: 0;
   border: none;
   cursor: pointer;
-  background: transparent url("/img/jsoneditor-icons.svg");
+  background: transparent url("/json-editor/img/jsoneditor-icons.svg");
 }
 
 div.jsoneditor-mode-view tr.jsoneditor-expandable td.jsoneditor-tree,
@@ -333,7 +333,7 @@ tr.jsoneditor-selected.jsoneditor-first button.jsoneditor-contextmenu {
 }
 
 div.jsoneditor-tree button.jsoneditor-dragarea {
-  background: url("/img/jsoneditor-icons.svg") -72px -72px;
+  background: url("/json-editor/img/jsoneditor-icons.svg") -72px -72px;
   cursor: move;
 }
 
@@ -387,7 +387,7 @@ div.jsoneditor-tree .jsoneditor-schema-error {
   height: 24px;
   padding: 0;
   margin: 0 4px 0 0;
-  background: url("/img/jsoneditor-icons.svg")  -168px -48px;
+  background: url("/json-editor/img/jsoneditor-icons.svg")  -168px -48px;
 }
 
 .jsoneditor-schema-error .jsoneditor-popover {
@@ -549,7 +549,7 @@ div.jsoneditor-tree .jsoneditor-schema-error {
   height: 24px;
   padding: 0;
   margin: 0 4px 0 0;
-  background: url("/img/jsoneditor-icons.svg")  -168px -48px;
+  background: url("/json-editor/img/jsoneditor-icons.svg")  -168px -48px;
 }
 /* ContextMenu - main menu */
 
@@ -631,7 +631,7 @@ div.jsoneditor-contextmenu div.jsoneditor-icon {
   border: none;
   padding: 0;
   margin: 0;
-  background-image: url("/img/jsoneditor-icons.svg");
+  background-image: url("/json-editor/img/jsoneditor-icons.svg");
 }
 
 div.jsoneditor-contextmenu ul li button div.jsoneditor-expand {
@@ -640,7 +640,7 @@ div.jsoneditor-contextmenu ul li button div.jsoneditor-expand {
   height: 24px;
   padding: 0;
   margin: 0 4px 0 0;
-  background: url("/img/jsoneditor-icons.svg") 0 -72px;
+  background: url("/json-editor/img/jsoneditor-icons.svg") 0 -72px;
   opacity: 0.4;
 }
 
@@ -818,7 +818,7 @@ div.jsoneditor-menu > div.jsoneditor-modes > button {
   padding: 0;
   border-radius: 2px;
   border: 1px solid transparent;
-  background: transparent url("/img/jsoneditor-icons.svg");
+  background: transparent url("/json-editor/img/jsoneditor-icons.svg");
   color: white;
   opacity: 0.8;
   font-family: arial, sans-serif;
@@ -960,7 +960,7 @@ table.jsoneditor-search button {
   padding: 0;
   margin: 0;
   border: none;
-  background: url("/img/jsoneditor-icons.svg");
+  background: url("/json-editor/img/jsoneditor-icons.svg");
   vertical-align: top;
 }
 
