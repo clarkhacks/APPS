@@ -24,10 +24,10 @@
     if(window.location.hash) {
       var ref = firebase.database().ref("filehost/images/any-image/"+hash);
       if (hash == "Clark-App") {
-       $("#pageTitle").html(" ").css('display', 'hidden'); 
+       $("#pageTitle").html(" ").css('display', 'hidden');
       }
       else {
-       $("#pageTitle").html(hash).css('textTransform', 'capitalize'); 
+       $("#pageTitle").html(hash).css('textTransform', 'capitalize');
       }
       document.title = hash;
     }else {
@@ -127,4 +127,15 @@ lightbox.option({
   'albumLabel': window.location.hash.substring(1),
   'disableScrolling': true
     })
+
+    $(".myApp > div:gt(0)").hide();
+
+setInterval(function() {
+  $('.myApp > div:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('#slideshow');
+}, 3000);
 };

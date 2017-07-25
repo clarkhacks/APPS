@@ -17,7 +17,7 @@
 
 <body>
 
-    <div ng-app="myApp" class="container">
+    <div ng-app="myApp" class="container myApp">
         <div ng-controller="imagesController as vm">
             <h1 align="center" id="pageTitle">Any Image</h1>
             <br />
@@ -32,9 +32,7 @@
             <br>
             <div class="img-sec" ng-repeat="image in vm.images | orderBy: '-date'" class="col-lg-12 col-md-12 col-sm-12">
                 <div class="">
-                    <a ng-href="{{image.url}}" data-lightbox="set">
                         <img class="img" id="{{ 'img-' + $index }}" ng-src="{{image.url}}">
-                    </a>
                 </div>
                 <div class="option-btns" id="option-btns">
                     <a href="{{image.url}}" class="btn blue col s6" download><i class="fa fa-download"></i></a>
