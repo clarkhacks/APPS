@@ -22,6 +22,16 @@
   <script src="https://bgrins.github.io/filereader.js/filereader.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
   <script>
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' })
+      .then(function(registration) {
+            console.log('Service Worker Registered');
+      });
+
+    navigator.serviceWorker.ready.then(function(registration) {
+       console.log('Service Worker Ready');
+    });
+  }
   console.log("JSON EDITOR CREDIT: https:\/\/github.com\/josdejong\/jsoneditor\/");
     // create the editor
     var container = document.getElementById('jsoneditor');
