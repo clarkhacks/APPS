@@ -28,7 +28,7 @@ Reveal.initialize({
   };
   firebase.initializeApp(config);
 var ref = firebase.database().ref("/slides");
-if(window.location.href.indexOf("remote") > -1) {
+if(window.location.href.indexOf("?remote") > -1) {
   Reveal.configure({ controls: true, touch: true });
 Reveal.addEventListener( 'slidechanged', function( event ) {  
   ref.set({currentslideX : Reveal.getState().indexh,
