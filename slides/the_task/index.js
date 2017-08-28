@@ -28,7 +28,7 @@ Reveal.initialize({
   };
   firebase.initializeApp(config);
 var ref = firebase.database().ref("/slides");
-if(window.location.href.indexOf("?remote") > -1) {
+if(window.location.href.indexOf("remote") > -1) {
   Reveal.configure({ controls: true, touch: true });
 Reveal.addEventListener( 'slidechanged', function( event ) {  
   ref.set({currentslideX : Reveal.getState().indexh,
@@ -39,27 +39,3 @@ Reveal.addEventListener( 'slidechanged', function( event ) {
 ref.on("value", function(snapshot) {
   Reveal.slide(snapshot.val().currentslideX,snapshot.val().currentslideY);
 });
-        var minutesLabel = document.getElementById("minutes");
-        var secondsLabel = document.getElementById("seconds");
-        var totalSeconds = 0;
-        setInterval(setTime, 1000);
-
-        function setTime()
-        {
-            ++totalSeconds;
-            secondsLabel.innerHTML = pad(totalSeconds%60);
-            minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
-        }
-
-        function pad(val)
-        {
-            var valString = val + "";
-            if(valString.length < 2)
-            {
-                return "0" + valString;
-            }
-            else
-            {
-                return valString;
-            }
-        }
