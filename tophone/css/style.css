@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
-html{    background:url(bg.jpg) no-repeat;
+html{    background:url(../bg.jpg) no-repeat;
   background-size: cover;
   height:100%;
 }
@@ -102,14 +102,14 @@ button:focus, textarea:focus {
 #button:hover{
 	background-color: rgba(0,0,0,0);
 	color: #666;
- border: #666 solid 4px; 
-  
+ border: #666 solid 4px;
+
 }
-	
+
 .submit:hover {
 	color: #3498db;
 }
-	
+
 .ease {
 	width: 0px;
 	height: 74px;
@@ -127,7 +127,7 @@ button:focus, textarea:focus {
 }
 (max-width: 580px) {
 	#form-div{
-@media only screen and 
+@media only screen and
 		left: 3%;
 		margin-right: 3%;
 		width: 88%;
