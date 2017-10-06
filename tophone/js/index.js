@@ -11,9 +11,8 @@
       };
       xhttp.open(
         "GET",
-        "https://apis.clarkhacks.com/send?sendTo=" +
-        toUser +
-        "&sendWhat=" +
+        "https://apis.clarkhacks.com/send" +
+        "?&sendWhat=" +
         message +
         "&subject=" +
         subject,
