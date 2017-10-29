@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Request Maker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel='stylesheet prefetch' href='https://cdn.clarkhacks.com/skeleton/2.0.4/css/skeleton.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  
+<div class="container">
+  <h1>Request Maker</h1>
+  <div class="row">
+    <div class="two columns">
+      <select name="requestType" id="requestType">
+        <option value="GET">GET</option>
+        <option value="PUT">PUT</option>
+        <option value="POST">POST</option>
+        <option value="PATCH">PATCH</option>
+      </select>
+    </div>
+    <div class="ten columns">
+      <input type="text" placeholder="https://jsonplaceholder.typicode.com/posts/1" id="serverURL"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <label for="Key">Key</label>
+      <input type="text" placeholder="Some Key" id="keyOne"/>
+      <input type="text" placeholder="Some Key" id="keyTwo"/>
+      <input type="text" placeholder="Some Key" id="keyThree"/>
+    </div>
+    <div class="six columns">
+      <label for="value">Value</label>
+      <input type="text" placeholder="Some Value" id="keyValueOne"/>
+      <input type="text" placeholder="Some Value" id="keyValueTwo"/>
+      <input type="text" placeholder="Some Value" id="keyValueThree"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns"><a class="button button-primary" href="#" onclick="sendRequest()">Send</a></div>
+    <div class="six columns">
+      <p>Click <a href="readme/">here</a> for instruction and warnings!</p>
+    </div>
+  </div>
+  <div class="row">
+    <label for="response">Response</label>
+    <textarea name="Response" placeholder="Server Response..." rows="8" id="response"></textarea>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+    <script  src="js/index.js"></script>
+
+</body>
+</html>

@@ -1,5 +1,4 @@
     function sendEmail() {
-      var toUser = "6183650808@vtext.com";
       var subject = "Note";
       var message = document.getElementById("message").value;
       var xhttp = new XMLHttpRequest();

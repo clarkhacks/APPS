@@ -1,0 +1,12 @@
+body {
+  background-color: #f7f7f7;
+}
+
+input {
+  width: 80%;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+}

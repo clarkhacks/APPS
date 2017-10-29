@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <tite>Pen Converter</tite>
+</head>
+  <body>
+    <h3>?pen=<code>PENID</code>&amp;user=<code>USERNAME</code></h3>
+    <script>
+    var
+        urlParams = new URLSearchParams(window.location.search),
+        baseURL = "https://codepen.io/",
+        penID = urlParams.get('pen'),
+        penUser = urlParams.get('user'),
+        fileType = [
+          ".html",
+          ".css",
+          ".js"
+        ],
+        rawHTML = baseURL + penUser + "/pen/" + penID + fileType[0],
+        rawSCRIPT = baseURL + penUser + "/pen/" + penID + fileType[2],
+        rawCSS = baseURL + penUser + "/pen/" + penID + fileType[1];
+
+  if (penID & penUser){
+    // Getting Raw html
+    function makeHttpObject() {
+      try {return new XMLHttpRequest();}
+      catch (error) {}
+      try {return new ActiveXObject("Msxml2.XMLHTTP");}
+      catch (error) {}
+      try {return new ActiveXObject("Microsoft.XMLHTTP");}
+      catch (error) {}
+
+      throw new Error("Could not create HTTP request object.");
+    }
+    var request = makeHttpObject();
+    request.open("GET", rawHTML, true);
+    request.send(null);
+    request.onreadystatechange = function() {
+      if (request.readyState == 4)
+      console.log("working");
+        var fileHTML = request.responseText;
+        var completeDoc = "<!DOCTYPE html><html><head>" + "<link rel=\"stylesheet\" href=\"" + rawCSS + "\">" + "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">" + "<title>" + penID + "<\/title><\/head><body>" + fileHTML + "<script src=\"" + rawSCRIPT + "\"><\/script>" + "<\/body><\/html>";
+        console.log(completeDoc);
+        document.open();
+    document.write(completeDoc);
+    document.close();
+    };
+  }
+
+    </script>
+  </body>
+</html>
