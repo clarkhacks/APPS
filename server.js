@@ -8,5 +8,5 @@ app.use(express.static(path.join(__dirname, '/')));
 // Listen for requests
 var server = app.listen(app.get('port'), function() {
  var port = server.address().port;
- console.log('CDN Serving Locally on ' + port);
+ console.log('APPS Serving Locally on ' + port);
 });

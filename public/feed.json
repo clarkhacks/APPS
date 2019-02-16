@@ -1,0 +1,38 @@
+[
+
+    {
+        "title": "Chat 2.0",
+        "url": "/apps/chat2/",
+        "content": "A simple, mobile friendly, chat app using Google's Firebase as a backend."
+    },
+
+    {
+        "title": "Markdown Editor",
+        "url": "/apps/mardown-editor",
+        "content": "A side-by-side markdown editor (not mobile friendly)"
+    },
+
+    {
+        "title": "Notes (C-Bin)",
+        "url": "/apps/bin",
+        "content": "C-Bin is a proof of concept. It take your note, encodes it with base64, appends it to the url hash and finally generate a unique short Url for sharing."
+    },
+
+    {
+        "title": "Imgur Upload",
+        "url": "/apps/imgur-upload/",
+        "content": "Quickly upload an image to Imgur."
+    },
+
+    {
+        "title": "Laverna",
+        "url": "/apps/laverna",
+        "content": "A hosted instance of Laverna, a markdown note taking app focused on privacy."
+    },
+
+    {
+        "title": "Submit An App",
+        "url": "https://gitlab.com/clarkhacks/APPS/issues",
+        "content": "If you have an app idea or would like to see a hosted instance of a pre-existing app click below."
+    }
+]
